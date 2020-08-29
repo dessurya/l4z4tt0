@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateSitePageConfig extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('lzzt_user', function (Blueprint $table) {
+        Schema::create('lzzt_site_page_config', function (Blueprint $table) {
             $table->id();
+            $table->string('identity');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('flag_show')->default('Y');
+            $table->string('last_update_by')->nullable();
+            $table->text('config');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lzzt_user');
+        Schema::dropIfExists('lzzt_site_page_config');
     }
 }

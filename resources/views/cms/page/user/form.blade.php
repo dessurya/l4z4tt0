@@ -2,7 +2,7 @@
 	<div class="card-header">
 		<h3 class="card-title">{{ $config['title'] }}</h3>
 	</div>
-	<form id="{{ $config['id'] }}" class="postData" method="post" action="{{ route($config['route']) }}">
+	<form id="{{ $config['id'] }}" class="postData" method="post" action="">
 		<input type="hidden" name="id" class="input">
 		<div class="card-body">
 			<div class="row">

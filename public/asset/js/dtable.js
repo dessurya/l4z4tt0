@@ -93,13 +93,14 @@ function show_tab(target) {
 }
 
 function fill_form(data) {
+    $(data.target).attr('action', data.route);
     $(data.target).find('button').removeAttr('disabled');
-    $(data.target).find('.input').val(null).removeAttr('required').removeAttr('readonly').removeAttr('disabled');
+    $(data.target).find('.input').val(null).removeAttr('required').removeAttr('disabled');
     $.each(data.required, function(key, target) {
         $('[name=' + target + ']').attr('required', 'true');
     });
-    $.each(data.readonly, function(key, target) {
-        $('[name=' + target + ']').attr('readonly', 'true');
+    $.each(data.disabled, function(key, target) {
+        $('[name=' + target + ']').attr('disabled', 'true');
     });
     $.each(data.data, function(key, val) {
         var inputTarget = data.target + ' [name=' + key + ']';
@@ -114,6 +115,7 @@ function fill_form(data) {
 }
 
 function close_form(target) {
+    $(target).attr('action', null);
     $(target).find('button').attr('disabled', 'true');
     $(target).find('.input').val(null).removeAttr('required').removeAttr('disabled');
     $(target).find('.input').attr('disabled', 'true');

@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\User;
 use App\Model\CmsPageConfig;
+use App\Model\User;
+use Validator;
+use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -53,5 +56,140 @@ class UserController extends Controller
             'renderGetData' => true,
             'data' => $data
         ];
+    }
+
+    public function formNew(Request $input) { return $this->form([ 'data' => [], 'route'=>'new' ]); }
+
+    public function formUpdate(Request $input) { return $this->form([ 'data' => User::find($input->id), 'route'=>'update' ]); }
+
+    private function form($param)
+    {
+        $config = $this->getConfig();
+        return [
+            'show_tab' => true,
+            'show_tab_target' => '#'.$config['page']['tabs']['tab'][1]['id'],
+            'fill_form' => true,
+            'fill_form_config' => [
+                'target' => 'form#'.$config['form']['id'],
+                'disabled' => $config['form']['disabled'],
+                'required' => $config['form']['required'],
+                'route' => route($config['form']['route'][$param['route']]),
+                'data' => $param['data']
+            ]
+        ];
+    }
+
+    public function storeNew(Request $input)
+    {
+        $message = [];
+        $validator = Validator::make($input->all(), [
+                'name' => 'required|max:175',
+                'email' => 'required|max:175|unique:lzzt_user,email',
+        ], $message);
+        if ($validator->fails()) {
+            return [
+                "validatorError" => true,
+                "data" => $validator->getMessageBag()->toArray()
+            ];
+        }
+        return $this->store(new User,$input->all());
+    }
+
+    public function storeUpdate(Request $input)
+    {
+        if ($input->id == Auth::guard('user')->user()->id) {
+            return [
+                'pnotify' => true,
+                'pnotify_type' => 'error',
+                'pnotify_text' => 'Fail, cant update your data from this form!'
+            ];
+        }
+        $message = [];
+        $validator = Validator::make($input->all(), [
+                'name' => 'required|max:175',
+                'email' => 'required|max:175|unique:lzzt_user,email,'.$input->id,
+        ], $message);
+        if ($validator->fails()) {
+            return [
+                "validatorError" => true,
+                "data" => $validator->getMessageBag()->toArray()
+            ];
+        }
+        return $this->store(User::find($input->id),$input->all());
+    }
+
+    public function profileStore(Request $input)
+    {
+        $self = User::find(Auth::guard('user')->user()->id);
+        $message = [];
+        $validator = Validator::make($input->all(), [
+                'name' => 'required|max:175',
+                'password' => 'required',
+                'email' => 'required|max:175|unique:lzzt_user,email,'.$self->id,
+        ], $message);
+        if ($validator->fails()) { return redirect()->back()->with('status', 'Fail, '.json_encode($validator->getMessageBag()->toArray())); }
+        if (!Hash::check($input->password, $self->password)){ return redirect()->back()->with('status', 'Fail, your old password not correct!'); }
+        if (!empty($input->n_password) or !empty($input->c_password)) {
+            if($input->n_password != $input->c_password){ return redirect()->back()->with('status', 'Fail, new password and confirm password not same!'); }
+            $self->password = $input->n_password;
+        }
+        $self->email = $input->email;
+        $self->name = $input->name;
+        $self->save();
+        return redirect()->back()->with('status', 'Success update your profile');
+    }
+
+    private function store($store,$input)
+    {
+        $store->email = $input['email'];
+        $store->name = $input['name'];
+        $store->save();
+        $config = $this->getConfig();
+        return [
+            'rebuildTable' => true,
+            'show_tab' => true,
+            'show_tab_target' => '#'.$config['page']['tabs']['tab'][0]['id'],
+            'close_form' => true,
+            'close_form_target' => 'form#'.$config['form']['id']
+        ];
+    }
+
+    public function delete(Request $input)
+    {
+        foreach (User::whereIn('id',explode('^',$input->id))->get() as $user) {
+            if ($user->id != Auth::guard('user')->user()->id) {
+                $user->delete();
+            }
+        }
+        $config = $this->getConfig();
+        return [
+            'rebuildTable' => true,
+            'close_form' => true,
+            'close_form_target' => 'form#'.$config['form']['id'],
+            'pnotify' => true,
+            'pnotify_type' => 'success',
+            'pnotify_text' => 'Success delete user'
+        ];
+    }
+
+    public function resetPassword(Request $input)
+    {
+        $config = $this->getConfig();
+        foreach (User::whereIn('id',explode('^',$input->id))->get() as $user) {
+            if ($user->id != Auth::guard('user')->user()->id) {
+                $user->password = 'l3tm3in';
+                $user->save();
+            }
+        }
+        return [
+            'pnotify' => true,
+            'pnotify_type' => 'success',
+            'pnotify_text' => 'Success reset password user'
+        ];
+    }
+
+    public function profile()
+    {
+        return view('cms.page.user.profile');
     }
 }

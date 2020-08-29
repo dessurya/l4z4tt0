@@ -10,7 +10,7 @@
     			<img src="{{ asset('vendors/adminlte-dist/img/avatar5.png') }}" class="img-circle elevation-2" alt="User Image">
     		</div>
     		<div class="info">
-    			<a href="#" class="d-block">{{ Auth::guard('user')->user()->name }}</a>
+    			<a href="{{ route('cms.user.profile') }}" class="d-block">{{ Auth::guard('user')->user()->name }}</a>
     		</div>
     	</div>
 
@@ -18,14 +18,22 @@
     		<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     			<li class="nav-item">
     				<a href="{{ route('cms.dashboard') }}" class="nav-link {{ Route::is('cms.dashboard') ? 'active' : '' }} ">
-    					<i class="nav-icon fas fa-tachometer-alt"></i>
     					<p>Dashboard</p>
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="{{ route('cms.picture.index') }}" class="nav-link {{ Route::is('cms.picture.index') ? 'active' : '' }} ">
+    					<p>Upload Picture</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.user.index') }}" class="nav-link {{ Route::is('cms.user.index') ? 'active' : '' }} ">
-    					<i class="nav-icon fas fa-tachometer-alt"></i>
     					<p>User</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
+    				<a href="{{ route('cms.site.page.index') }}" class="nav-link {{ Route::is('cms.site.page.index') ? 'active' : '' }} ">
+    					<p>Site Page</p>
     				</a>
     			</li>
     		</ul>

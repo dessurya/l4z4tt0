@@ -7,7 +7,7 @@
 
 	<ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-			<a class="nav-link" href="#" role="button" alt="profile" title="Profile">
+			<a class="nav-link" href="{{ route('cms.user.profile') }}" role="button" alt="profile" title="Profile">
 				<i class="fas fa-id-card-alt"></i>
 	        </a>
 	    </li>
