@@ -23,36 +23,36 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'slider' => [
-                        'show' => true,
+                        'show' => 'true',
                         'max_item' => 3
                     ],
                     'menu_lazatto' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Menu Lazzato',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'title_link' => 'Lihat Semua Menu',
                         'max_item' => 10
                     ],
                     'tentang_kami' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Mengenal Lebih Dekat',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'title_link' => 'Selengkapnya',
                         'picture' => null
                     ],
                     'news' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'News & Update',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'max_item' => 3
                     ],
                     'location' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'News & Update',
                         'picture' => null
                     ],
                     'kemitraan' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Informasi Kemitraan',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'title_link' => 'Selengkapnya',
@@ -70,32 +70,24 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'banner' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Mengenal Lebih Dekat',
                         'picture' => null
                     ],
                     'profile' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Mengenal Lebih Dekat',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'picture' => null
                     ],
-                    'profile' => [
-                        'show' => true,
+                    'sejarah' => [
+                        'show' => 'true',
                         'title' => 'Sejarah',
-                        'content' => [
-                            ['title' => 'title 1', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 2', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 3', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 4', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 5', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 6', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ],
-                            ['title' => 'title 7', 'value' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.' ]
-                        ],
-                        'picture' => []
+                        'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
+                        'picture' => null
                     ],
                     'visi_misi' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Visi/Misi',
                         'visi_content' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'visi_picture' => null,
@@ -114,17 +106,17 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'banner' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Menu Lazatto',
                         'picture' => null
                     ],
                     'promo' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Menu Promo',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>'
                     ],
                     'reguler' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Menu Reguler',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>'
                     ]
@@ -140,12 +132,12 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'banner' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'News & Update',
                         'picture' => null
                     ],
                     'news' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'News & Update'
                     ]
                 ]
@@ -160,12 +152,12 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'maps' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Lokasi Outlet',
                         'picture' => null
                     ],
                     'information' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => null
                     ]
                 ]
@@ -180,18 +172,18 @@ class SeederSitePageConfig extends Seeder
                         'keyword' => 'meta_keyword'
                     ],
                     'banner' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Contact Us & Kemitraan',
                         'picture' => null
                     ],
                     'form' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Contact Us',
-                        'content' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>',
+                        'decription' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>',
                         'picture' => null
                     ],
                     'kemitraan' => [
-                        'show' => true,
+                        'show' => 'true',
                         'title' => 'Informasi Kemitraan',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>'
                     ]

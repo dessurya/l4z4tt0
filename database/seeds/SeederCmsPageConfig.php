@@ -125,7 +125,7 @@ class SeederCmsPageConfig extends Seeder
                             ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false]
                         ],
                         'action' => [
-                            ['route'=>'cms.site.page.form','title'=>'Update Page','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.site.page.form','title'=>'Update Page','select'=>true,'confirm'=>false,'multiple'=>false],
                             ['route'=>'cms.site.page.show.or.hide','title'=>'Show Or Hide Page','select'=>true,'confirm'=>true,'multiple'=>true]
                         ]
                     ],

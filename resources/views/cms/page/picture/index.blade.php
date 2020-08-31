@@ -22,8 +22,6 @@
         let url = $(this).attr('action');
         var picture = $(this).find('[name=picture]').prop('files');
         $.each(picture, function(idx, data){
-            console.log(data.width);
-            console.log(data.height);
             if (data.type != 'image/jpeg' && data.type != 'image/jpg' && data.type != 'image/gif' && data.type != 'image/png') {
                 pnotify({"title":"Warning!","type":"error","text":"Invalid file type : "+data.name});
             }
@@ -46,6 +44,7 @@
     });
 
     function callPicture() {
+        console.log('refresh');
         $('#custom-tabs-list #picture-content').html(null);
         postData(null,'{!! route('cms.picture.data') !!}');
     }

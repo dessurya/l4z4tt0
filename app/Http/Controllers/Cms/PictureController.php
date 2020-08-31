@@ -19,7 +19,7 @@ class PictureController extends Controller
     public function index()
     {
         $config = $this->getConfig();
-        $config['page']['tabs']['tab'][0]['content'] = '<div id="picture-content" class="row"></div>';
+        $config['page']['tabs']['tab'][0]['content'] = '<button id="clickRefresPicList" onclick="callPicture()" class="btn btn-block btn-primary">Refresh List</button><br><div id="picture-content" class="row"></div>';
         $config['page']['tabs']['tab'][1]['content'] = view('cms.page.picture.form')->render();
         return view('cms.page.picture.index', compact('config'));
     }
@@ -77,6 +77,11 @@ class PictureController extends Controller
         $store = new Picture;
         $store->url = $dir.$file_name;
         $store->save();
-        return [ 'callPicture' => true ];
+        return [
+            // 'callPicture' => true,
+            'pnotify' => true,
+            'pnotify_type' => 'success',
+            'pnotify_text' => 'Success upload picture : '.$input->name.'!'
+        ];
     }
 }

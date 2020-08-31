@@ -31,7 +31,9 @@ class User extends Authenticatable
     public static function boot() {
 		parent::boot();
 		self::creating(function ($selfM) {
-			$selfM->password = Hash::make('l3tm3in');
+            if (empty($selfM->password)) {
+                $selfM->password = Hash::make('l3tm3in');
+            }
 		});
 	}
 }

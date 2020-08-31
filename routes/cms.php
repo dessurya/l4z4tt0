@@ -32,7 +32,14 @@ Route::name('cms.')->group(function(){
             Route::get('/', 'Cms\SitePageController@index')->name('index');
             Route::post('/data', 'Cms\SitePageController@data')->name('data');
             Route::post('/form', 'Cms\SitePageController@form')->name('form');
-            Route::post('/store', 'Cms\SitePageController@store')->name('store');
+            Route::name('store.')->prefix('store')->group(function(){
+                Route::post('/beranda', 'Cms\SitePageController@storeBeranda')->name('beranda');
+                Route::post('/tentang_kami', 'Cms\SitePageController@storetentangKami')->name('tentang_kami');
+                Route::post('/menu', 'Cms\SitePageController@storeMenu')->name('menu');
+                Route::post('/news', 'Cms\SitePageController@storeNews')->name('news');
+                Route::post('/location', 'Cms\SitePageController@storeLocation')->name('location');
+                Route::post('/contact', 'Cms\SitePageController@storeContact')->name('contact');
+            });
             Route::post('/show/or/hide', 'Cms\SitePageController@showOrHide')->name('show.or.hide');
         });
 
