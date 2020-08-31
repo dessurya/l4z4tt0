@@ -14,6 +14,7 @@ class SeederUser extends Seeder
     {
         $stores = [
             ['name'=>'Adam Surya','email'=>'fourline66@gmail.com','password'=>'asdasd'],
+            ['name'=>'Faiz','email'=>'faizalvian97@gmail.com','password'=>'asdasd'],
             ['name'=>'Karyna Kirana','email'=>'karynakirana@gmail.com','password'=>'asdasd']
         ];
 

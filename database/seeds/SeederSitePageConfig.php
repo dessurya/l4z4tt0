@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Model\SitePageConfig;
+use App\Model\Picture;
 
 class SeederSitePageConfig extends Seeder
 {
@@ -38,7 +39,7 @@ class SeederSitePageConfig extends Seeder
                         'title' => 'Mengenal Lebih Dekat',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
                         'title_link' => 'Selengkapnya',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'news' => [
                         'show' => 'true',
@@ -49,7 +50,7 @@ class SeederSitePageConfig extends Seeder
                     'location' => [
                         'show' => 'true',
                         'title' => 'News & Update',
-                        'picture' => null
+                        'picture' => Picture::find(3)->url
                     ],
                     'kemitraan' => [
                         'show' => 'true',
@@ -72,27 +73,27 @@ class SeederSitePageConfig extends Seeder
                     'banner' => [
                         'show' => 'true',
                         'title' => 'Mengenal Lebih Dekat',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'profile' => [
                         'show' => 'true',
                         'title' => 'Mengenal Lebih Dekat',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'sejarah' => [
                         'show' => 'true',
                         'title' => 'Sejarah',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'visi_misi' => [
                         'show' => 'true',
                         'title' => 'Visi/Misi',
                         'visi_content' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
-                        'visi_picture' => null,
+                        'visi_picture' => Picture::find(5)->url,
                         'misi_content' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
-                        'misi_picture' => null
+                        'misi_picture' => Picture::find(6)->url
                     ]
                 ]
             ],
@@ -108,7 +109,7 @@ class SeederSitePageConfig extends Seeder
                     'banner' => [
                         'show' => 'true',
                         'title' => 'Menu Lazatto',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'promo' => [
                         'show' => 'true',
@@ -134,7 +135,7 @@ class SeederSitePageConfig extends Seeder
                     'banner' => [
                         'show' => 'true',
                         'title' => 'News & Update',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'news' => [
                         'show' => 'true',
@@ -154,7 +155,7 @@ class SeederSitePageConfig extends Seeder
                     'maps' => [
                         'show' => 'true',
                         'title' => 'Lokasi Outlet',
-                        'picture' => null
+                        'picture' => Picture::find(3)->url
                     ],
                     'information' => [
                         'show' => 'true',
@@ -174,13 +175,13 @@ class SeederSitePageConfig extends Seeder
                     'banner' => [
                         'show' => 'true',
                         'title' => 'Contact Us & Kemitraan',
-                        'picture' => null
+                        'picture' => Picture::find(4)->url
                     ],
                     'form' => [
                         'show' => 'true',
                         'title' => 'Contact Us',
                         'decription' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>',
-                        'picture' => null
+                        'picture' => Picture::find(1)->url
                     ],
                     'kemitraan' => [
                         'show' => 'true',
