@@ -2,54 +2,67 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::name('cms.')->group(function(){
-    Route::get('/', 'Cms\AuthController@redirectLogin');
-    Route::get('login', 'Cms\AuthController@login')->name('login');
-    Route::post('signin', 'Cms\AuthController@signin')->name('signin');
+Route::get('/', 'AuthController@redirectLogin');
+Route::get('login', 'AuthController@login')->name('login');
+Route::post('signin', 'AuthController@signin')->name('signin');
 
-    Route::middleware('user')->group(function() {
-        Route::get('dashboard', 'Cms\DashboardController@index')->name('dashboard');
-        Route::get('signout', 'Cms\AuthController@signout')->name('signout');
+Route::middleware('user')->group(function() {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('signout', 'AuthController@signout')->name('signout');
 
-        Route::name('user.')->prefix('user/')->group(function(){
-            Route::get('/', 'Cms\UserController@index')->name('index');
-            Route::get('/profile', 'Cms\UserController@profile')->name('profile');
-            Route::post('/profile/store', 'Cms\UserController@profileStore')->name('profile.store');
-            Route::post('/data', 'Cms\UserController@data')->name('data');
-            Route::post('/delete', 'Cms\UserController@delete')->name('delete');
-            Route::post('/reset/password', 'Cms\UserController@resetPassword')->name('reset.password');
-            Route::name('form.')->prefix('form/')->group(function(){
-                Route::post('/new', 'Cms\UserController@formNew')->name('new');
-                Route::post('/update', 'Cms\UserController@formUpdate')->name('update');
-            });
-            Route::name('store.')->prefix('store/')->group(function(){
-                Route::post('/new', 'Cms\UserController@storeNew')->name('new');
-                Route::post('/update', 'Cms\UserController@storeUpdate')->name('update');
-            });
+    Route::name('user.')->prefix('user/')->group(function(){
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/profile', 'UserController@profile')->name('profile');
+        Route::post('/profile/store', 'UserController@profileStore')->name('profile.store');
+        Route::post('/data', 'UserController@data')->name('data');
+        Route::post('/delete', 'UserController@delete')->name('delete');
+        Route::post('/reset/password', 'UserController@resetPassword')->name('reset.password');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'UserController@formNew')->name('new');
+            Route::post('/update', 'UserController@formUpdate')->name('update');
         });
-
-        Route::name('site.page.')->prefix('site/page')->group(function(){
-            Route::get('/', 'Cms\SitePageController@index')->name('index');
-            Route::post('/data', 'Cms\SitePageController@data')->name('data');
-            Route::post('/form', 'Cms\SitePageController@form')->name('form');
-            Route::name('store.')->prefix('store')->group(function(){
-                Route::post('/beranda', 'Cms\SitePageController@storeBeranda')->name('beranda');
-                Route::post('/tentang_kami', 'Cms\SitePageController@storetentangKami')->name('tentang_kami');
-                Route::post('/menu', 'Cms\SitePageController@storeMenu')->name('menu');
-                Route::post('/news', 'Cms\SitePageController@storeNews')->name('news');
-                Route::post('/location', 'Cms\SitePageController@storeLocation')->name('location');
-                Route::post('/contact', 'Cms\SitePageController@storeContact')->name('contact');
-            });
-            Route::post('/show/or/hide', 'Cms\SitePageController@showOrHide')->name('show.or.hide');
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'UserController@storeNew')->name('new');
+            Route::post('/update', 'UserController@storeUpdate')->name('update');
         });
+    });
 
-        Route::name('picture.')->prefix('picture')->group(function(){
-            Route::get('/', 'Cms\PictureController@index')->name('index');
-            Route::post('/data', 'Cms\PictureController@data')->name('data');
-            Route::post('/form', 'Cms\PictureController@form')->name('form');
-            Route::post('/store', 'Cms\PictureController@store')->name('store');
-            Route::post('/prop', 'Cms\PictureController@prop')->name('prop');
-            Route::post('/delete', 'Cms\PictureController@delete')->name('delete');
+    Route::name('site.page.')->prefix('site/page')->group(function(){
+        Route::get('/', 'SitePageController@index')->name('index');
+        Route::post('/data', 'SitePageController@data')->name('data');
+        Route::post('/form', 'SitePageController@form')->name('form');
+        Route::name('store.')->prefix('store')->group(function(){
+            Route::post('/beranda', 'SitePageController@storeBeranda')->name('beranda');
+            Route::post('/tentang_kami', 'SitePageController@storetentangKami')->name('tentang_kami');
+            Route::post('/menu', 'SitePageController@storeMenu')->name('menu');
+            Route::post('/news', 'SitePageController@storeNews')->name('news');
+            Route::post('/location', 'SitePageController@storeLocation')->name('location');
+            Route::post('/contact', 'SitePageController@storeContact')->name('contact');
+        });
+        Route::post('/show/or/hide', 'SitePageController@showOrHide')->name('show.or.hide');
+    });
+
+    Route::name('picture.')->prefix('picture')->group(function(){
+        Route::get('/', 'PictureController@index')->name('index');
+        Route::post('/data', 'PictureController@data')->name('data');
+        Route::post('/form', 'PictureController@form')->name('form');
+        Route::post('/store', 'PictureController@store')->name('store');
+        Route::post('/prop', 'PictureController@prop')->name('prop');
+        Route::post('/delete', 'PictureController@delete')->name('delete');
+    });
+
+    Route::name('menu.')->prefix('menu')->group(function(){
+        Route::get('/', 'MenuController@index')->name('index');
+        Route::post('/data', 'MenuController@data')->name('data');
+        Route::post('/flag', 'MenuController@flag')->name('flag');
+        Route::post('/delete', 'MenuController@delete')->name('delete');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'MenuController@formNew')->name('new');
+            Route::post('/update', 'MenuController@formUpdate')->name('update');
+        });
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'MenuController@storeNew')->name('new');
+            Route::post('/update', 'MenuController@storeUpdate')->name('update');
         });
     });
 });

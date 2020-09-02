@@ -83,8 +83,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapCmsRoutes()
     {
         Route::prefix('cms')
+            ->name('cms.')
             ->middleware('web')
-            ->namespace($this->namespace)
+            ->namespace($this->namespace.'\Cms')
             ->group(base_path('routes/cms.php'));
     }
 }
