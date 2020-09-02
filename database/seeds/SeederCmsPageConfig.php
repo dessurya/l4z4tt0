@@ -137,8 +137,62 @@ class SeederCmsPageConfig extends Seeder
                         'required' => []
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_menu',
+                'config' => [
+                    'page' => [
+                        'title' => 'Menu Management',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-form-tab',
+                                    'href' => 'custom-tabs-form',
+                                    'name' => 'Form'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.menu.data',
+                        'table_id' => 'asdIT_tables_menu',
+                        'order' => ['key'=>'created_at','value'=>'desc'],
+                        'componen' => [
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Menu','data'=>'menu','search'=>true,'searchtype'=>'text','order'=>true,"hight_light"=>true,"hight_light_class"=>"bg-success"],
+                            ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Picture','data'=>'picture','search'=>false,'searchtype'=>'text','order'=>false],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
+                            ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],
+                        ],
+                        'action' => [
+                            ['route'=>'cms.menu.form.new','title'=>'Add Menu','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.menu.form.update','title'=>'Update Menu','select'=>true,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.menu.flag','title'=>'Show / Hide Menu','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.menu.delete','title'=>'Delete Menu','select'=>true,'confirm'=>true,'multiple'=>true],
+                        ]
+                    ],
+                    'form' => [
+                        'id' => 'form_menu',
+                        'title' => 'Form Menu',
+                        'route' => [
+                            'new'=>'cms.menu.store.new',
+                            'update'=>'cms.menu.store.update'
+                        ],
+                        'disabled' => [],
+                        'required' => ['name', 'menu', 'picture']
+                    ]
+                ]
             ]
-
         ];
 
         foreach ($stores as $key => $store) {

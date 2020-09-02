@@ -36,6 +36,11 @@
     					<p>Site Page</p>
     				</a>
     			</li>
+				<li class="nav-item">
+    				<a href="{{ route('cms.menu.index') }}" class="nav-link {{ Route::is('cms.menu.index') ? 'active' : '' }} ">
+    					<p>Menu Lazatto</p>
+    				</a>
+    			</li>
     		</ul>
     	</nav>
     </div>

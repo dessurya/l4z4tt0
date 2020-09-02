@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             SeederUser::class,
             SeederPicture::class,
             SeederCmsPageConfig::class,
-            SeederSitePageConfig::class
+            SeederSitePageConfig::class,
+            SeederContent::class
         ]);
     }
 }

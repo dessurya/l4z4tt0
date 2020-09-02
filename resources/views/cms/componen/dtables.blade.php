@@ -37,7 +37,7 @@
                     </select> entries || Order By <select name="order_key" class="rebuildTable">
                         @foreach($config['componen'] as $list)
                         @if($list['order'] == true)
-                        <option {{ $config['order']['key'] == $list['name'] ? 'selected' : '' }} value="{{$list['name']}}">{{ $list['name'] }}</option>
+                        <option {{ $config['order']['key'] == $list['data'] ? 'selected' : '' }} value="{{$list['data']}}">{{ $list['name'] }}</option>
                         @endif
                         @endforeach
                     </select> : <select name="order_val" class="rebuildTable">

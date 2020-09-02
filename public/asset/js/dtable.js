@@ -108,6 +108,8 @@ function fill_form(data) {
             $('img.' + key).attr('src', val).show();
         } else if ($(inputTarget).is('textarea') && $(inputTarget).hasClass('summernote')) {
             $(inputTarget).data('text', val);
+        } else if ($(inputTarget).is('select') && $(inputTarget).hasClass('select')) {
+            $(inputTarget).val(val).change();
         } else {
             $(inputTarget).val(val);
         }
