@@ -19,7 +19,7 @@ class CreateMenuTable extends Migration
             $table->string('menu')->nullable();
             $table->string('flag_show')->default('Y');
             $table->text('picture')->nullable();
-            $table->text('last_update_by')->nullable();
+            $table->string('last_update_by')->nullable();
             $table->timestamps();
         });
     }

@@ -80,4 +80,19 @@ Route::middleware('user')->group(function() {
             Route::post('/update', 'SliderController@storeUpdate')->name('update');
         });
     });
+
+    Route::name('kemitraan.')->prefix('kemitraan')->group(function(){
+        Route::get('/', 'KemitraanController@index')->name('index');
+        Route::post('/data', 'KemitraanController@data')->name('data');
+        Route::post('/flag', 'KemitraanController@flag')->name('flag');
+        Route::post('/delete', 'KemitraanController@delete')->name('delete');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'KemitraanController@formNew')->name('new');
+            Route::post('/update', 'KemitraanController@formUpdate')->name('update');
+        });
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'KemitraanController@storeNew')->name('new');
+            Route::post('/update', 'KemitraanController@storeUpdate')->name('update');
+        });
+    });
 });

@@ -247,6 +247,60 @@ class SeederCmsPageConfig extends Seeder
                         'required' => ['name', 'order', 'picture']
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_kemitraan',
+                'config' => [
+                    'page' => [
+                        'title' => 'Kemitraan Management',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-form-tab',
+                                    'href' => 'custom-tabs-form',
+                                    'name' => 'Form'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.kemitraan.data',
+                        'table_id' => 'asdIT_tables_kemitraan',
+                        'order' => ['key'=>'created_at','value'=>'desc'],
+                        'componen' => [
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Picture','data'=>'picture','search'=>false,'searchtype'=>'text','order'=>false],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
+                            ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],
+                        ],
+                        'action' => [
+                            ['route'=>'cms.kemitraan.form.new','title'=>'Add Kemitraan','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.kemitraan.form.update','title'=>'Update Kemitraan','select'=>true,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.kemitraan.flag','title'=>'Show / Hide Kemitraan','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.kemitraan.delete','title'=>'Delete Kemitraan','select'=>true,'confirm'=>true,'multiple'=>true],
+                        ]
+                    ],
+                    'form' => [
+                        'id' => 'form_kemitraan',
+                        'title' => 'Form Kemitraan',
+                        'route' => [
+                            'new'=>'cms.kemitraan.store.new',
+                            'update'=>'cms.kemitraan.store.update'
+                        ],
+                        'disabled' => [],
+                        'required' => ['name', 'picture']
+                    ]
+                ]
             ]
         ];
 

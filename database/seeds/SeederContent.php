@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Model\Menu;
 use App\Model\Slider;
+use App\Model\Kemitraan;
 use App\Model\Picture;
 
 class SeederContent extends Seeder
@@ -17,6 +18,7 @@ class SeederContent extends Seeder
         $this->menuReguler();
         $this->menuPromo();
         $this->Slider();
+        $this->Kemitraan();
     }
 
     private function menuPromo()
@@ -74,6 +76,20 @@ class SeederContent extends Seeder
 
         foreach ($stores as $key => $store) {
             Slider::create($store);
+        }
+    }
+
+    private function Kemitraan()
+    {
+        $pic = Picture::find(1)->url;
+        $stores = [
+            ['name'=>'Kemitraan 1','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
+            ['name'=>'Kemitraan 2','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
+            ['name'=>'Kemitraan 3','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.']
+        ];
+
+        foreach ($stores as $key => $store) {
+            Kemitraan::create($store);
         }
     }
 }

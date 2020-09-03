@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSliderTable extends Migration
+class CreateKemitraanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSliderTable extends Migration
      */
     public function up()
     {
-        Schema::create('lzzt_slider', function (Blueprint $table) {
+        Schema::create('lzzt_kemitraan', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('order')->nullable();
             $table->string('flag_show')->default('Y');
+            $table->text('content')->nullable();
             $table->text('picture')->nullable();
             $table->string('last_update_by')->nullable();
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateSliderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lzzt_slider');
+        Schema::dropIfExists('lzzt_kemitraan');
     }
 }

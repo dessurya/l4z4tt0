@@ -46,6 +46,11 @@
     					<p>Menu Lazatto</p>
     				</a>
     			</li>
+				<li class="nav-item">
+    				<a href="{{ route('cms.kemitraan.index') }}" class="nav-link {{ Route::is('cms.kemitraan.index') ? 'active' : '' }} ">
+    					<p>Kemitraan</p>
+    				</a>
+    			</li>
     		</ul>
     	</nav>
     </div>
