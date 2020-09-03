@@ -47,6 +47,11 @@
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="{{ route('cms.location.index') }}" class="nav-link {{ Route::is('cms.location.index') ? 'active' : '' }} ">
+    					<p>Location</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.kemitraan.index') }}" class="nav-link {{ Route::is('cms.kemitraan.index') ? 'active' : '' }} ">
     					<p>Kemitraan</p>
     				</a>

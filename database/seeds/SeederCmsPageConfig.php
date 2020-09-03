@@ -301,6 +301,60 @@ class SeederCmsPageConfig extends Seeder
                         'required' => ['name', 'picture']
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_location',
+                'config' => [
+                    'page' => [
+                        'title' => 'Location Management',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-form-tab',
+                                    'href' => 'custom-tabs-form',
+                                    'name' => 'Form'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.location.data',
+                        'table_id' => 'asdIT_tables_location',
+                        'order' => ['key'=>'city','value'=>'asc'],
+                        'componen' => [
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'City','data'=>'city','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
+                            ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],
+                        ],
+                        'action' => [
+                            ['route'=>'cms.location.form.new','title'=>'Add Location','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.location.form.update','title'=>'Update Location','select'=>true,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.location.flag','title'=>'Show / Hide Location','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.location.delete','title'=>'Delete Location','select'=>true,'confirm'=>true,'multiple'=>true],
+                        ]
+                    ],
+                    'form' => [
+                        'id' => 'form_location',
+                        'title' => 'Form Location',
+                        'route' => [
+                            'new'=>'cms.location.store.new',
+                            'update'=>'cms.location.store.update'
+                        ],
+                        'disabled' => [],
+                        'required' => ['name', 'city']
+                    ]
+                ]
             ]
         ];
 

@@ -121,7 +121,9 @@ function close_form(target) {
     $(target).attr('action', null);
     $(target).find('button').attr('disabled', 'true');
     $.each($(target).find('.input'), function(key, val) {
-        if ($(this).is('textarea') && $(this).hasClass('summernote')) { $(this).data('text', null); }
+        if ($(this).is('textarea') && $(this).hasClass('summernote')) {
+            $(this).data('text', null).summernote('destroy');
+        }
         $(this).val(null).removeAttr('required').removeAttr('disabled');
     });
     $(target).find('.input').attr('disabled', 'true');

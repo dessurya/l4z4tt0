@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Model\Menu;
 use App\Model\Slider;
 use App\Model\Kemitraan;
+use App\Model\Location;
 use App\Model\Picture;
 
 class SeederContent extends Seeder
@@ -19,6 +20,7 @@ class SeederContent extends Seeder
         $this->menuPromo();
         $this->Slider();
         $this->Kemitraan();
+        $this->Location();
     }
 
     private function menuPromo()
@@ -90,6 +92,32 @@ class SeederContent extends Seeder
 
         foreach ($stores as $key => $store) {
             Kemitraan::create($store);
+        }
+    }
+
+    private function Location()
+    {
+        $stores = [
+            ['name'=>'Outlate 1 J', 'city'=> 'Jakarta'],
+            ['name'=>'Outlate 2 J', 'city'=> 'Jakarta'],
+            ['name'=>'Outlate 3 J', 'city'=> 'Jakarta'],
+            ['name'=>'Outlate 4 J', 'city'=> 'Jakarta'],
+            ['name'=>'Outlate 1 B', 'city'=> 'Bekasi'],
+            ['name'=>'Outlate 2 B', 'city'=> 'Bekasi'],
+            ['name'=>'Outlate 3 B', 'city'=> 'Bekasi'],
+            ['name'=>'Outlate 4 B', 'city'=> 'Bekasi'],
+            ['name'=>'Outlate 1 T', 'city'=> 'Tangerang'],
+            ['name'=>'Outlate 2 T', 'city'=> 'Tangerang'],
+            ['name'=>'Outlate 3 T', 'city'=> 'Tangerang'],
+            ['name'=>'Outlate 4 T', 'city'=> 'Tangerang'],
+            ['name'=>'Outlate 1 D', 'city'=> 'Depok'],
+            ['name'=>'Outlate 2 D', 'city'=> 'Depok'],
+            ['name'=>'Outlate 3 D', 'city'=> 'Depok'],
+            ['name'=>'Outlate 4 D', 'city'=> 'Depok'],
+        ];
+
+        foreach ($stores as $key => $store) {
+            Location::create($store);
         }
     }
 }

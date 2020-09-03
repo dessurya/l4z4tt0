@@ -95,4 +95,19 @@ Route::middleware('user')->group(function() {
             Route::post('/update', 'KemitraanController@storeUpdate')->name('update');
         });
     });
+
+    Route::name('location.')->prefix('location')->group(function(){
+        Route::get('/', 'LocationController@index')->name('index');
+        Route::post('/data', 'LocationController@data')->name('data');
+        Route::post('/flag', 'LocationController@flag')->name('flag');
+        Route::post('/delete', 'LocationController@delete')->name('delete');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'LocationController@formNew')->name('new');
+            Route::post('/update', 'LocationController@formUpdate')->name('update');
+        });
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'LocationController@storeNew')->name('new');
+            Route::post('/update', 'LocationController@storeUpdate')->name('update');
+        });
+    });
 });

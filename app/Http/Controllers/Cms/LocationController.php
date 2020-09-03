@@ -5,22 +5,22 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\CmsPageConfig;
-use App\Model\Kemitraan;
+use App\Model\Location;
 use Auth;
 
-class KemitraanController extends Controller
+class LocationController extends Controller
 {
     private function getConfig()
     {
-        return CmsPageConfig::where('identity','page_kemitraan')->first()->config;
+        return CmsPageConfig::where('identity','page_location')->first()->config;
     }
 
     public function index()
     {
         $config = $this->getConfig();
         $config['page']['tabs']['tab'][0]['content'] = view('cms.componen.dtables', ['config'=>$config['dtables']])->render();
-        $config['page']['tabs']['tab'][1]['content'] = view('cms.page.kemitraan.form', ['config'=>$config['form']])->render();
-        return view('cms.page.kemitraan.index', compact('config'));
+        $config['page']['tabs']['tab'][1]['content'] = view('cms.page.location.form', ['config'=>$config['form']])->render();
+        return view('cms.page.location.index', compact('config'));
     }
 
     public function data(Request $input)
@@ -30,7 +30,7 @@ class KemitraanController extends Controller
         if (isset($input->show) and !empty($input->show)) {
             $paginate = $input->show;
         }
-        $data = Kemitraan::select('*');
+        $data = Location::select('*');
         if (isset($input->order_key) and !empty($input->order_key)) {
             $data->orderBy($input->order_key, $input->order_val);
         }else{
@@ -45,6 +45,9 @@ class KemitraanController extends Controller
         }
         if (isset($input->name) and !empty($input->name)){
             $data->where('name', 'like', '%'.$input->name.'%');
+        }
+        if (isset($input->city) and !empty($input->city)){
+            $data->where('city', 'like', '%'.$input->city.'%');
         }
         if (isset($input->flag_show) and !empty($input->flag_show)){
             $data->where('flag_show', 'like', '%'.$input->flag_show.'%');
@@ -61,7 +64,7 @@ class KemitraanController extends Controller
 
     public function formNew(Request $input) { return $this->form([ 'data' => [], 'route'=>'new' ]); }
 
-    public function formUpdate(Request $input) { return $this->form([ 'data' => Kemitraan::find($input->id), 'route'=>'update' ]); }
+    public function formUpdate(Request $input) { return $this->form([ 'data' => Location::find($input->id), 'route'=>'update' ]); }
 
     private function form($param)
     {
@@ -82,10 +85,10 @@ class KemitraanController extends Controller
         ];
     }
 
-    public function storeNew(Request $input) { return $this->store(new Kemitraan,$input->all()); }
+    public function storeNew(Request $input) { return $this->store(new Location,$input->all()); }
     public function storeUpdate(Request $input)
     {
-        $store = Kemitraan::where('id',$input->id)->get();
+        $store = Location::where('id',$input->id)->get();
         if (count($store) == 0) {
             return [
                 'pnotify' => true,
@@ -98,8 +101,8 @@ class KemitraanController extends Controller
 
     private function store($store,$input)
     {
-        $store->content = $input['content'];
-        $store->picture = $input['picture'];
+        $store->address = $input['address'];
+        $store->city = $input['city'];
         $store->last_update_by = Auth::guard('user')->user()->name;
         $store->name = $input['name'];
         $store->save();
@@ -115,7 +118,7 @@ class KemitraanController extends Controller
 
     public function getMenuByExplodeID($Ids)
     {
-        return Kemitraan::whereIn('id',explode('^',$Ids))->get();
+        return Location::whereIn('id',explode('^',$Ids))->get();
     }
 
     public function delete(Request $input)
@@ -130,7 +133,7 @@ class KemitraanController extends Controller
             'close_form_target' => 'form#'.$config['form']['id'],
             'pnotify' => true,
             'pnotify_type' => 'success',
-            'pnotify_text' => 'Success delete kemitraan'
+            'pnotify_text' => 'Success delete location'
         ];
     }
 
@@ -145,7 +148,7 @@ class KemitraanController extends Controller
             'rebuildTable' => true,
             'pnotify' => true,
             'pnotify_type' => 'success',
-            'pnotify_text' => 'Success show / hide kemitraan'
+            'pnotify_text' => 'Success show / hide location'
         ];
     }
 }
