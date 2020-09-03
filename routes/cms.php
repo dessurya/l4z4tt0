@@ -65,4 +65,19 @@ Route::middleware('user')->group(function() {
             Route::post('/update', 'MenuController@storeUpdate')->name('update');
         });
     });
+
+    Route::name('slider.')->prefix('slider')->group(function(){
+        Route::get('/', 'SliderController@index')->name('index');
+        Route::post('/data', 'SliderController@data')->name('data');
+        Route::post('/flag', 'SliderController@flag')->name('flag');
+        Route::post('/delete', 'SliderController@delete')->name('delete');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'SliderController@formNew')->name('new');
+            Route::post('/update', 'SliderController@formUpdate')->name('update');
+        });
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'SliderController@storeNew')->name('new');
+            Route::post('/update', 'SliderController@storeUpdate')->name('update');
+        });
+    });
 });

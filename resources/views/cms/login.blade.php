@@ -27,7 +27,7 @@
 					</div>
 					@endif
 					<form action="{{ route('cms.signin') }}" method="post">
-						{{ csrf_field() }}
+						@csrf
 						<div class="input-group mb-3">
 							<input required name="email" type="email" class="form-control" placeholder="Email">
 							<div class="input-group-append">

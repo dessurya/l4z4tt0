@@ -192,6 +192,61 @@ class SeederCmsPageConfig extends Seeder
                         'required' => ['name', 'menu', 'picture']
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_slider',
+                'config' => [
+                    'page' => [
+                        'title' => 'Slider Management',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-form-tab',
+                                    'href' => 'custom-tabs-form',
+                                    'name' => 'Form'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.slider.data',
+                        'table_id' => 'asdIT_tables_slider',
+                        'order' => ['key'=>'created_at','value'=>'desc'],
+                        'componen' => [
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Order','data'=>'order','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Picture','data'=>'picture','search'=>false,'searchtype'=>'text','order'=>false],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
+                            ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],
+                        ],
+                        'action' => [
+                            ['route'=>'cms.slider.form.new','title'=>'Add Slider','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.slider.form.update','title'=>'Update Slider','select'=>true,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.slider.flag','title'=>'Show / Hide Slider','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.slider.delete','title'=>'Delete Slider','select'=>true,'confirm'=>true,'multiple'=>true],
+                        ]
+                    ],
+                    'form' => [
+                        'id' => 'form_slider',
+                        'title' => 'Form Slider',
+                        'route' => [
+                            'new'=>'cms.slider.store.new',
+                            'update'=>'cms.slider.store.update'
+                        ],
+                        'disabled' => [],
+                        'required' => ['name', 'order', 'picture']
+                    ]
+                ]
             ]
         ];
 

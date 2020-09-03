@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Model\Menu;
+use App\Model\Slider;
 use App\Model\Picture;
 
 class SeederContent extends Seeder
@@ -15,6 +16,7 @@ class SeederContent extends Seeder
     {
         $this->menuReguler();
         $this->menuPromo();
+        $this->Slider();
     }
 
     private function menuPromo()
@@ -58,6 +60,20 @@ class SeederContent extends Seeder
 
         foreach ($stores as $key => $store) {
             Menu::create($store);
+        }
+    }
+
+    private function Slider()
+    {
+        $Slider1 = Picture::find(2)->url;
+        $Slider2 = Picture::find(4)->url;
+        $stores = [
+            ['name'=>'Slider 1','order'=>1,'picture'=>$Slider1],
+            ['name'=>'Slider 2','order'=>2,'picture'=>$Slider1]
+        ];
+
+        foreach ($stores as $key => $store) {
+            Slider::create($store);
         }
     }
 }

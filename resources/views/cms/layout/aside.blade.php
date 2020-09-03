@@ -37,6 +37,11 @@
     				</a>
     			</li>
 				<li class="nav-item">
+    				<a href="{{ route('cms.slider.index') }}" class="nav-link {{ Route::is('cms.slider.index') ? 'active' : '' }} ">
+    					<p>Slider</p>
+    				</a>
+    			</li>
+				<li class="nav-item">
     				<a href="{{ route('cms.menu.index') }}" class="nav-link {{ Route::is('cms.menu.index') ? 'active' : '' }} ">
     					<p>Menu Lazatto</p>
     				</a>
