@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Slider;
-use App\Picture;
-use App\Site;
+use App\Model\Slider;
+use App\Model\Picture;
+use App\Model\SitePageConfig AS Site;
 
 class HomeController extends Controller
 {

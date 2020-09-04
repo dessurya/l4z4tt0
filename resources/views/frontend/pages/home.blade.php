@@ -23,7 +23,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-md-7 text-center">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <?php $menuData = json_decode($menu->config, true); ?>
+                    <?php $menuData = $menu->config; ?>
                     <h2>{{ $menuData['menu_lazatto']['title'] }}</h2>
                     <hr>
                     <p class="mt-3">{!! $menuData['menu_lazatto']['decription'] !!}</p>
@@ -80,7 +80,7 @@
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-md-7">
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                    <?php $menuData = json_decode($menu->config, true); ?>
+                    <?php $menuData = $menu->config; ?>
                     <h2>{{ $menuData['tentang_kami']['title'] }}</h2>
                     <hr>
                     <p class="mt-3">{!! $menuData['tentang_kami']['decription'] !!}</p>
@@ -89,7 +89,7 @@
         </div>
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
-                <img src="{{ asset('asset/frontend/images/default_457x216.png') }}" class="img-fluid" alt="">
+                <img src="{{ $menuData['tentang_kami']['picture'] }}" class="img-fluid" alt="">
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
                 <p>{!! $menuData['menu_lazatto']['decription'] !!}</p>
