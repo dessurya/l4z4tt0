@@ -114,15 +114,15 @@ class SliderController extends Controller
         ];
     }
 
-    public function getMenuByExplodeID($Ids)
+    public function getByExplodeID($Ids)
     {
         return Slider::whereIn('id',explode('^',$Ids))->get();
     }
 
     public function delete(Request $input)
     {
-        foreach ($this->getMenuByExplodeID($input->id) as $menu) {
-            $menu->delete();
+        foreach ($this->getByExplodeID($input->id) as $row) {
+            $row->delete();
         }
         $config = $this->getConfig();
         return [
@@ -137,9 +137,9 @@ class SliderController extends Controller
 
     public function flag(Request $input)
     {
-        foreach ($this->getMenuByExplodeID($input->id) as $menu) {
-            $menu->flag_show = $menu->flag_show == 'Y' ? 'N' : 'Y';
-            $menu->save();
+        foreach ($this->getByExplodeID($input->id) as $row) {
+            $row->flag_show = $row->flag_show == 'Y' ? 'N' : 'Y';
+            $row->save();
         }
         $config = $this->getConfig();
         return [

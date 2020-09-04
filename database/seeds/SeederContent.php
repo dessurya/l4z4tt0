@@ -5,6 +5,7 @@ use App\Model\Menu;
 use App\Model\Slider;
 use App\Model\Kemitraan;
 use App\Model\Location;
+use App\Model\News;
 use App\Model\Picture;
 
 class SeederContent extends Seeder
@@ -21,6 +22,7 @@ class SeederContent extends Seeder
         $this->Slider();
         $this->Kemitraan();
         $this->Location();
+        $this->News();
     }
 
     private function menuPromo()
@@ -119,5 +121,22 @@ class SeederContent extends Seeder
         foreach ($stores as $key => $store) {
             Location::create($store);
         }
+    }
+
+    private function News()
+    {
+        $stores = [
+            ['name'=>'News Here 1 J'],
+            ['name'=>'News Here 2 J'],
+            ['name'=>'News Here 3 J']
+        ];
+
+        foreach ($stores as $key => $store) {
+            News::create($store);
+        }
+
+        $find = News::find(1);
+        $find->name = 'OK OK kakka';
+        $find->save();
     }
 }

@@ -110,4 +110,19 @@ Route::middleware('user')->group(function() {
             Route::post('/update', 'LocationController@storeUpdate')->name('update');
         });
     });
+
+    Route::name('news.')->prefix('news')->group(function(){
+        Route::get('/', 'NewsController@index')->name('index');
+        Route::post('/data', 'NewsController@data')->name('data');
+        Route::post('/flag', 'NewsController@flag')->name('flag');
+        Route::post('/delete', 'NewsController@delete')->name('delete');
+        Route::name('form.')->prefix('form/')->group(function(){
+            Route::post('/new', 'NewsController@formNew')->name('new');
+            Route::post('/update', 'NewsController@formUpdate')->name('update');
+        });
+        Route::name('store.')->prefix('store/')->group(function(){
+            Route::post('/new', 'NewsController@storeNew')->name('new');
+            Route::post('/update', 'NewsController@storeUpdate')->name('update');
+        });
+    });
 });

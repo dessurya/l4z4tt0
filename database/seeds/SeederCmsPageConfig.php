@@ -355,6 +355,59 @@ class SeederCmsPageConfig extends Seeder
                         'required' => ['name', 'city']
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_news',
+                'config' => [
+                    'page' => [
+                        'title' => 'News Management',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-form-tab',
+                                    'href' => 'custom-tabs-form',
+                                    'name' => 'Form'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.news.data',
+                        'table_id' => 'asdIT_tables_news',
+                        'order' => ['key'=>'name','value'=>'asc'],
+                        'componen' => [
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
+                            ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],
+                        ],
+                        'action' => [
+                            ['route'=>'cms.news.form.new','title'=>'Add News','select'=>false,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.news.form.update','title'=>'Update News','select'=>true,'confirm'=>false,'multiple'=>false],
+                            ['route'=>'cms.news.flag','title'=>'Show / Hide News','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.news.delete','title'=>'Delete News','select'=>true,'confirm'=>true,'multiple'=>true],
+                        ]
+                    ],
+                    'form' => [
+                        'id' => 'form_new',
+                        'title' => 'Form News',
+                        'route' => [
+                            'new'=>'cms.news.store.new',
+                            'update'=>'cms.news.store.update'
+                        ],
+                        'disabled' => [],
+                        'required' => ['name']
+                    ]
+                ]
             ]
         ];
 
