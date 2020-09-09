@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use Hash;
+use Config;
 
 class User extends Authenticatable
 {
@@ -21,11 +22,7 @@ class User extends Authenticatable
     }
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::parse($date)->format('Y-m-d');
-    }
-    public function getUpdatedAtAttribute($date)
-    {
-        return Carbon::parse($date)->format('Y-m-d');
+        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d');
     }
 
     public static function boot() {

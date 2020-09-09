@@ -126,4 +126,10 @@ Route::middleware('user')->group(function() {
             Route::post('/update', 'NewsController@storeUpdate')->name('update');
         });
     });
+
+    Route::name('inbox.')->prefix('inbox')->group(function(){
+        Route::get('/', 'InboxController@index')->name('index');
+        Route::post('/data', 'InboxController@data')->name('data');
+        Route::post('/read', 'InboxController@read')->name('read');
+    });
 });

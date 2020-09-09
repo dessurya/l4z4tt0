@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Config;
 
 class Picture extends Model
 {
@@ -18,10 +19,6 @@ class Picture extends Model
     }
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::parse($date)->format('Y-m-d');
-    }
-    public function getUpdatedAtAttribute($date)
-    {
-        return Carbon::parse($date)->format('Y-m-d');
+        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d');
     }
 }

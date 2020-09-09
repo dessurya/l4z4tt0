@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Config;
 
 class News extends Model
 {
@@ -27,5 +28,9 @@ class News extends Model
     public function getMetaAttribute($json)
     {
         return json_decode($json,true);
+    }
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d');
     }
 }

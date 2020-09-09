@@ -61,6 +61,11 @@
     					<p>Kemitraan</p>
     				</a>
     			</li>
+				<li class="nav-item">
+    				<a href="{{ route('cms.inbox.index') }}" class="nav-link {{ Route::is('cms.inbox.index') ? 'active' : '' }} ">
+    					<p>Inbox</p>
+    				</a>
+    			</li>
     		</ul>
     	</nav>
     </div>

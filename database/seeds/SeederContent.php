@@ -6,6 +6,7 @@ use App\Model\Slider;
 use App\Model\Kemitraan;
 use App\Model\Location;
 use App\Model\News;
+use App\Model\Inbox;
 use App\Model\Picture;
 
 class SeederContent extends Seeder
@@ -23,6 +24,7 @@ class SeederContent extends Seeder
         $this->Kemitraan();
         $this->Location();
         $this->News();
+        $this->Inbox();
     }
 
     private function menuPromo()
@@ -134,9 +136,19 @@ class SeederContent extends Seeder
         foreach ($stores as $key => $store) {
             News::create($store);
         }
+    }
 
-        $find = News::find(1);
-        $find->name = 'OK OK kakka';
-        $find->save();
+    private function Inbox()
+    {
+        $stores = [
+            ['name'=>'Visitor 1', 'email'=>'visitor1@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
+            ['name'=>'Visitor 2', 'email'=>'visitor2@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
+            ['name'=>'Visitor 3', 'email'=>'visitor3@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
+            ['name'=>'Visitor 4', 'email'=>'visitor4@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
+        ];
+
+        foreach ($stores as $key => $store) {
+            Inbox::create($store);
+        }
     }
 }
