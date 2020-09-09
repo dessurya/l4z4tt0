@@ -291,6 +291,23 @@ class SitePageController extends Controller
         return $this->store('contact',$store);
     }
 
+    public function storeSitePublicConfig(Request $input)
+    {
+        $store = [
+            'name' => $input->name,
+            'config' => [
+                'website' => [ 'icon' => $input->website_icon],
+                'navigasi' => [ 'logo' => $input->navigasi_logo],
+                'footer' => [
+                    'logo' => $input->footer_logo,
+                    'quote' => $input->footer_quote,
+                    'contact' => $input->footer_contact
+                ]
+            ]
+        ];
+        return $this->store('site_public_config',$store);
+    }
+
     public function showOrHide(Request $input)
     {
         foreach (SitePageConfig::whereIn('id', explode('^',$input->id))->get() as $list) {

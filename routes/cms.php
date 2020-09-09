@@ -38,6 +38,7 @@ Route::middleware('user')->group(function() {
             Route::post('/news', 'SitePageController@storeNews')->name('news');
             Route::post('/location', 'SitePageController@storeLocation')->name('location');
             Route::post('/contact', 'SitePageController@storeContact')->name('contact');
+            Route::post('/site_public_config', 'SitePageController@storeSitePublicConfig')->name('site_public_config');
         });
         Route::post('/show/or/hide', 'SitePageController@showOrHide')->name('show.or.hide');
     });
