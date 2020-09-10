@@ -23,4 +23,10 @@ class HomeController extends Controller
             'site_menu' => $site_menu,
         ]);
     }
+
+    public static function getHeader()
+    {
+        $site_menu = Site::where('flag_show','Y')->whereNotIn('identity', ['site_public_config'])->orderBy('id','asc')->get();
+        echo view('frontend.layout.header', compact('site_menu'))->render();
+    }
 }

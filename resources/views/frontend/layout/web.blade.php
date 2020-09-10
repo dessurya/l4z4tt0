@@ -38,28 +38,7 @@
         <div class="site-mobile-menu-body"></div>
       </div>
         
-      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-        <div class="container">
-          <div class="row align-items-center position-relative">
-            <div class="site-logo">
-              <a href="#" class="text-black"><img src="{{ asset('asset/frontend/images/logo.png') }}" style="max-height: 70px;"></a>
-            </div>
-            <div class="col-12">
-              <nav class="site-navigation text-right ml-auto " role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                  <li><a href="http://localhost:7777/l4z4tt0/public/" class="nav-link">Beranda</a></li>
-                  <li><a href="http://localhost:7777/l4z4tt0/public/tentang-kami" class="nav-link">Mengenal Lebih Dekat</a></li>
-                  <li><a href="http://localhost:7777/l4z4tt0/public/menu-lazatto" class="nav-link">Menu Lazatto</a></li>
-                  <li><a href="#testimonials-section" class="nav-link">News & Update</a></li>
-                  <li><a href="#blog-section" class="nav-link">Lokasi Outlet</a></li>
-                  <li><a href="#contact-section" class="nav-link">Contact Us</a></li>
-                </ul>
-              </nav>
-            </div>
-            <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-          </div>
-        </div>
-      </header>
+      {{ App\Http\Controllers\HomeController::getHeader() }}
       
       @yield('content')
 
@@ -69,7 +48,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-8">
-                  <h2 class="footer-heading mb-4"><img src="images/logo.png" style="max-height: 100px;"></h2>
+                  <h2 class="footer-heading mb-4"><img src="{{ asset('asset\picture\default\site\LOGO_LAZATTO.png') }}" style="max-height: 100px;"></h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
                 </div>
                 <div class="col-md-4 ml-auto">
