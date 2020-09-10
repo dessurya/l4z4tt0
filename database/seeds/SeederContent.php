@@ -127,10 +127,11 @@ class SeederContent extends Seeder
 
     private function News()
     {
+        $picture = Picture::find(1)->url;
         $stores = [
-            ['name'=>'News Here 1 J'],
-            ['name'=>'News Here 2 J'],
-            ['name'=>'News Here 3 J']
+            ['name'=>'News Here 1 J', 'picture'=>$picture,'introduction'=>'<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>'],
+            ['name'=>'News Here 2 J', 'picture'=>$picture,'introduction'=>'<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>'],
+            ['name'=>'News Here 3 J', 'picture'=>$picture,'introduction'=>'<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>']
         ];
 
         foreach ($stores as $key => $store) {

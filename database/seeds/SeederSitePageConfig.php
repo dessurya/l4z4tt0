@@ -49,7 +49,7 @@ class SeederSitePageConfig extends Seeder
                     ],
                     'location' => [
                         'show' => 'true',
-                        'title' => 'News & Update',
+                        'title' => 'Lokasi Outlet',
                         'picture' => Picture::find(3)->url
                     ],
                     'kemitraan' => [
