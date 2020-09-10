@@ -3,16 +3,16 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use Config;
 
 class Inbox extends Model
 {
     protected $table = 'lzzt_inbox';
     protected $fillable = ['name','email','subject','message','flag_read'];
+    protected $dates = ['created_at','updated_at'];
+    protected $dateFormat = 'Y-m-d H:i:s';
     
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d H:i:s');
+        return date('Y-m-d H:i:s', strtotime($date));
     }
 }

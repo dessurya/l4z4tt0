@@ -11,14 +11,16 @@ class News extends Model
 {
     protected $table = 'lzzt_news';
     protected $fillable = ['name','introduction','flag_show','picture','content','banner','slug','meta_title','meta_content','meta_keyword'];
+    protected $dates = ['created_at','updated_at'];
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     public static function boot() {
 		parent::boot();
 		self::creating(function ($selfM) {
-			$selfM->slug = Str::slug($selfM->name,'-').'_'.(new Carbon($selfM->createt_at))->format('Y_m_d'); 
+			$selfM->slug = Str::slug($selfM->name,'-').'_'.(new Carbon($selfM->createt_at))->timezone(Config::get('app.timezone'))->format('Ymd_His'); 
         });
         self::updating(function ($selfM) {
-			$selfM->slug = Str::slug($selfM->name,'-').'_'.(new Carbon($selfM->createt_at))->format('Y_m_d'); 
+			$selfM->slug = Str::slug($selfM->name,'-').'_'.(new Carbon($selfM->createt_at))->timezone(Config::get('app.timezone'))->format('Ymd_His'); 
 		});
 	}
 
@@ -31,6 +33,6 @@ class News extends Model
     }
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d');
+        return date('Y-m-d H:i:s', strtotime($date));
     }
 }

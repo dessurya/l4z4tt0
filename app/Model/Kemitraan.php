@@ -3,15 +3,15 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use Config;
 
 class Kemitraan extends Model
 {
     protected $table = 'lzzt_kemitraan';
     protected $fillable = ['name','content','flag_show','picture'];
+    protected $dates = ['created_at','updated_at'];
+    protected $dateFormat = 'Y-m-d H:i:s';
     public function getCreatedAtAttribute($date)
     {
-        return Carbon::parse($date)->timezone(Config::get('app.timezone'))->format('Y-m-d');
+        return date('Y-m-d H:i:s', strtotime($date));
     }
 }
