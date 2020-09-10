@@ -195,5 +195,21 @@ class SeederSitePageConfig extends Seeder
         foreach ($stores as $key => $store) {
             SitePageConfig::create($store);
         }
+
+        $logo = Picture::find(1)->url;
+
+        SitePageConfig::create([
+            'identity' => 'site_public_config',
+            'name' => 'Site Public Config',
+            'config' => [
+                'website' => [ 'icon' => $logo],
+                'navigasi' => [ 'logo' => $logo],
+                'footer' => [
+                    'logo' => $logo,
+                    'quote' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
+                    'contact' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>'
+                ]
+            ]
+        ]);
     }
 }

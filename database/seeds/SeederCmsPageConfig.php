@@ -408,6 +408,47 @@ class SeederCmsPageConfig extends Seeder
                         'required' => ['name']
                     ]
                 ]
+            ],
+            [
+                'identity' => 'page_inbox',
+                'config' => [
+                    'page' => [
+                        'title' => 'Inbox',
+                        'tabs' => [
+                            'id_head' => 'custom-tabs-tab',
+                            'id_content' => 'custom-tabs-tabContent',
+                            'tab' => [
+                                [
+                                    'active' => true,
+                                    'id' => 'custom-tabs-list-tab',
+                                    'href' => 'custom-tabs-list',
+                                    'name' => 'List'
+                                ],
+                                [
+                                    'active' => false,
+                                    'id' => 'custom-tabs-read-tab',
+                                    'href' => 'custom-tabs-read',
+                                    'name' => 'Read Inbox'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'dtables' => [
+                        'route' => 'cms.inbox.data',
+                        'table_id' => 'asdIT_tables_inbox',
+                        'order' => ['key'=>'created_at','value'=>'desc'],
+                        'componen' => [
+                            ['name'=>'Read','data'=>'flag_read','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Email','data'=>'email','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Subject','data'=>'subject','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true]
+                        ],
+                        'action' => [
+                            ['route'=>'cms.inbox.read','title'=>'Read Inbox','select'=>true,'confirm'=>false,'multiple'=>false],
+                        ]
+                    ]
+                ]
             ]
         ];
 
