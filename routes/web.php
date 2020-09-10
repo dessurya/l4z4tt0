@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::resource('/', 'HomeController');
-Route::resource('/tentang-kami', 'AboutController');
-Route::resource('/menu-lazatto', 'MenuController');
-Route::resource('/news-&-update', 'NewsController');
+Route::get('/', 'HomeController@index')->name('beranda');
+Route::get('/tentang-kami', 'AboutController@index')->name('tentangkami');
+Route::get('/menu-lazatto', 'MenuController@index');
+// Route::get('/news-&-update', 'NewsController');
 // Route::resource('/lokasi-outlet', 'LokasiController');
 // Route::resource('/contact-us', 'ContactController');

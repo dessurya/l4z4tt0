@@ -2,7 +2,7 @@
 
 @section('content')
     @foreach($site_menu as $menu)
-    <?php $menuData = $menu->config; ?>
+    @php $menuData = $menu->config; @endphp
 
         <!-- BANNER SLIDER -->
         @if($menuData['slider']['show'] == 'true')

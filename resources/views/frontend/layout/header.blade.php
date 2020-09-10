@@ -8,15 +8,17 @@
         <nav class="site-navigation text-right ml-auto " role="navigation">
         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
             @foreach($site_menu as $row)
-            <li><a href="#contact-section" class="nav-link">{{$row->name}}</a></li>
+            <li><a href="{{ !empty($row->route) ? route($row->route) : '#' }}" class="nav-link">{{$row->name}}</a></li>
             @endforeach
-            <!-- <li><a href="http://localhost:7777/l4z4tt0/public/" class="nav-link">Beranda</a></li>
+            <?php /*
+            <li><a href="http://localhost:7777/l4z4tt0/public/" class="nav-link">Beranda</a></li>
             <li><a href="http://localhost:7777/l4z4tt0/public/tentang-kami" class="nav-link">Mengenal Lebih Dekat</a></li>
             <li><a href="http://localhost:7777/l4z4tt0/public/menu-lazatto" class="nav-link">Menu Lazatto</a></li>
             <li><a href="#testimonials-section" class="nav-link">News & Update</a></li>
             <li><a href="#blog-section" class="nav-link">Lokasi Outlet</a></li>
             <li><a href="#contact-section" class="nav-link">Contact Us</a></li>
-            <li><a href="#contact-section" class="nav-link"></a></li> -->
+            <li><a href="#contact-section" class="nav-link"></a></li> {{ $ashdiusahdsa }}
+            */ ?>
         </ul>
         </nav>
     </div>

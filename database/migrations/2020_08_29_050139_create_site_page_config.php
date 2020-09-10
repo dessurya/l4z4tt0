@@ -17,6 +17,7 @@ class CreateSitePageConfig extends Migration
             $table->id();
             $table->string('identity');
             $table->string('name');
+            $table->string('route')->nullable();
             $table->string('flag_show')->default('Y');
             $table->string('last_update_by')->nullable();
             $table->text('config');

@@ -17,6 +17,7 @@ class SeederSitePageConfig extends Seeder
             [
                 'identity' => 'beranda',
                 'name' => 'Beranda',
+                'route' => 'beranda',
                 'config' => [
                     'meta' =>[
                         'title' => 'meta_title',
