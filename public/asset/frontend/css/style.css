@@ -1277,7 +1277,7 @@ h1, h2, h3, h4, h5,
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-.full-width-image {
+/* .full-width-image {
   width: 100vw;
   position: relative;
   left: 50%;  
@@ -1286,4 +1286,4 @@ h1, h2, h3, h4, h5,
 
 .full-width-image img {
   width: 100%;
-}
+} */

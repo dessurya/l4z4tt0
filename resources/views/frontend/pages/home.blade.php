@@ -93,7 +93,7 @@
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
                 <p>{!! $menuData['menu_lazatto']['decription'] !!}</p>
-                <a href="#" class="btn btn-danger">{{ $menuData['tentang_kami']['title_link'] }}</a>
+                <a href="#" class="btn btn-lg text-white" style="border-radius: 11px;background-color:#EB2326">{{ $menuData['tentang_kami']['title_link'] }}</a>
             </div>
         </div>
     </div>
@@ -148,6 +148,7 @@
 <!-- END NEWS & UPDATE SECTION -->
 
 
+
 <!-- LOKASI SECTION -->
 <div class="site-section bg-light" id="blog-section">
     <div class="container">
@@ -161,10 +162,12 @@
         </div>
     </div>
     <div class="full-width-image">
-        <img src="{{ asset('asset/frontend/images/home-page/map.png') }}" class="img-fluid">
+        <img src="{{ asset('asset/frontend/images/home-page/map.png') }}" class="img-fluid mx-auto d-block">
     </div>
 </div>
 <!-- END LOKASI SECTION -->
+
+
 
 <!-- KEMITRAAN SECTION -->
 <div class="site-section" id="blog-section">
@@ -190,7 +193,7 @@
             </div>
         </div>
         <div class="text-center mt-5">
-            <a href="#" class="btn btn-danger btn-lg">Selengkapnya</a>
+            <a href="#" class="btn btn-lg text-white" style="border-radius: 11px;background-color:#EB2326">Selengkapnya</a>
         </div>
     </div>
 </div>
