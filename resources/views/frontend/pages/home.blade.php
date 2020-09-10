@@ -8,7 +8,18 @@
         @if($menuData['slider']['show'] == 'true')
             <div class="owl-carousel slide-one-item" id="banner">
                 @foreach($items->take($menuData['slider']['max_item']) as $slider)
-                    <div class="site-section-cover img-bg-section" style="background-image: url('{{ $slider->picture }}'); " ></div>
+                    <div class="site-section-cover img-bg-section" style="background-image: url('{{ $slider->picture }}'); " >
+                    <?php
+                        // tambah kan section titile dan button 
+                        // contoh
+                        // @if($slider->flag_name == 'Y') <div class="title">{{ $slider->name }}</div> @endif
+                        // @if($slider->flag_button == 'Y')
+                        // <div class="btn">
+                        //     <a href="{{ $slider->button_url }}">{{ $slider->button_title }}</a>
+                        // </div>
+                        // @endif
+                    ?>
+                    </div>
                 @endforeach
             </div>
         @endif

@@ -225,6 +225,8 @@ class SeederCmsPageConfig extends Seeder
                             ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Order','data'=>'order','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show Name','data'=>'flag_name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Show Button','data'=>'flag_button','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Picture','data'=>'picture','search'=>false,'searchtype'=>'text','order'=>false],
                             ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
                             ['name'=>'Last Update By','data'=>'last_update_by','search'=>true,'searchtype'=>'text','order'=>false],

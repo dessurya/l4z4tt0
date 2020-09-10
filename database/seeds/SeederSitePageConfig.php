@@ -17,7 +17,6 @@ class SeederSitePageConfig extends Seeder
             [
                 'identity' => 'beranda',
                 'name' => 'Beranda',
-                'route' => 'beranda',
                 'config' => [
                     'meta' =>[
                         'title' => 'meta_title',
@@ -212,5 +211,13 @@ class SeederSitePageConfig extends Seeder
                 ]
             ]
         ]);
+        
+        SitePageConfig::where(['identity' => 'beranda'])->update(['route' => 'beranda']);
+        SitePageConfig::where(['identity' => 'tentang_kami'])->update(['route' => 'tentang_kami']);
+        SitePageConfig::where(['identity' => 'menu'])->update(['route' => 'menu']);
+        SitePageConfig::where(['identity' => 'news'])->update(['route' => 'news']);
+        SitePageConfig::where(['identity' => 'location'])->update(['route' => 'location']);
+        SitePageConfig::where(['identity' => 'contact'])->update(['route' => 'contact']);
+
     }
 }

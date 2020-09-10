@@ -99,6 +99,22 @@ class SliderController extends Controller
 
     private function store($store,$input)
     {
+        if ($input['flag_button'] == 'Y') {
+            if (empty($input['button_title'])) {
+                return [
+                    'pnotify' => true,
+                    'pnotify_type' => 'error',
+                    'pnotify_text' => 'Fail, Button title is required!'
+                ];
+            }
+            if (empty($input['button_url'])) {
+                return [
+                    'pnotify' => true,
+                    'pnotify_type' => 'error',
+                    'pnotify_text' => 'Fail, Button url is required!'
+                ];
+            }
+        }
         $store->order = $input['order'];
         $store->picture = $input['picture'];
         $store->last_update_by = Auth::guard('user')->user()->name;
