@@ -45,6 +45,7 @@ class SeederSitePageConfig extends Seeder
                         'show' => 'true',
                         'title' => 'News & Update',
                         'decription' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
+                        'title_link' => 'Lihat Semua News & Update',
                         'max_item' => 3
                     ],
                     'location' => [
@@ -207,7 +208,8 @@ class SeederSitePageConfig extends Seeder
                 'footer' => [
                     'logo' => $logo,
                     'quote' => '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.</p>',
-                    'contact' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>'
+                    'contact' => '<p><strong>Head Office</strong></p><p>Jl.Lorem Ipsum Dolasr Si, Amet, Nualim Kantra</p><p>Boughna Jyoin Khan</p><p>ph: +72 72816298</p>',
+                    'max_item' => 3
                 ]
             ]
         ]);

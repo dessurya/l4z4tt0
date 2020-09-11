@@ -167,7 +167,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Show or Hide</label>
                                         <select name="news_show" class="form-control input select">
@@ -176,16 +176,22 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input value="{{ $data->config['news']['title'] }}" required name="news_title" type="text" class="form-control input">
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Max Item</label>
                                         <input value="{{ $data->config['news']['max_item'] }}" name="news_max_item" type="number" class="form-control input" max="12" min="1">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Link Title</label>
+                                        <input value="{{ $data->config['news']['title_link'] }}" required name="news_title_link" type="text" class="form-control input">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">

@@ -1,21 +1,43 @@
 @extends('frontend.layout.web')
 
+@push('link')
+<style>
+    .site-section-cover, .site-section-cover .container > .row{
+        min-height: 530px;
+    }
+    .slide-one-item .img-bg-section .title h2{
+        color: black;
+        font-size: 35pt;
+    }
+    .slide-one-item .img-bg-section .title{
+        margin-bottom: 2em;
+    }
+    .slide-one-item .img-bg-section .btn{
+        min-width: 160px;
+    }
+</style>
+@endpush
+
 @section('content')
     <?php /* BANNER SLIDER */ ?>
     @if($menuData['slider']['show'] == 'true')
         <div class="owl-carousel slide-one-item" id="banner">
             @foreach($items as $slider)
                 <div class="site-section-cover img-bg-section" style="background-image: url('{{ $slider->picture }}'); " >
-                <?php
-                    // tambah kan section titile dan button 
-                    // contoh
-                    // @if($slider->flag_name == 'Y') <div class="title">{{ $slider->name }}</div> @endif
-                    // @if($slider->flag_button == 'Y')
-                    // <div class="btn">
-                    //     <a href="{{ $slider->button_url }}" target="_blank">{{ $slider->button_title }}</a>
-                    // </div>
-                    // @endif
-                ?>
+                    <div class="container pt-5">
+                        <div class="pt-5" style="width:70%;">
+                            @if($slider->flag_name == 'Y') 
+                            <div class="title">
+                                <h2>{{ $slider->name }}</h2>
+                            </div> 
+                            @endif
+                            @if($slider->flag_button == 'Y')
+                            <div class="btn">
+                                <a href="{{ $slider->button_url }}" target="_blank" class="btn btn-lg my-btn-red">{{ $slider->button_title }}</a>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -33,22 +55,22 @@
                         <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                             <h2>{{ $menuData['menu_lazatto']['title'] }}</h2>
                             <hr>
-                            <div class="mt-3">{!! $menuData['menu_lazatto']['decription'] !!}</div>
+                            <div class="mt-3 color-one">{!! $menuData['menu_lazatto']['decription'] !!}</div>
                         </div>
                     </div>
                 </div>
-                <div class="owl-carousel nonloop-block-13">
-                    @foreach($menu_reguler as $menu_reguler)
-                    <div>
-                        <div class="block-testimony-1 text-center">
-                            <img src="{{ $menu_reguler->picture }}" style="border-radius:11px">
-                        </div>
+            </div>
+            <div class="owl-carousel nonloop-block-13" data-aos="fade-up" data-aos-delay="">
+                @foreach($menu_reguler as $menu_reguler)
+                <div>
+                    <div class="block-testimony-1 text-center">
+                        <img src="{{ $menu_reguler->picture }}" style="border-radius:11px">
                     </div>
-                    @endforeach
                 </div>
-                <div class="text-center mt-5">
-                    <a href="#" class="btn btn-lg text-white" style="border-radius: 11px;background-color:#EB2326">{{ $menuData['menu_lazatto']['title_link'] }}</a>
-                </div>
+                @endforeach
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-lg my-btn-red">{{ $menuData['menu_lazatto']['title_link'] }}</a>
             </div>
         </div>
     @endif
@@ -65,7 +87,6 @@
                         <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                             <h2>{{ $menuData['tentang_kami']['title'] }}</h2>
                             <hr>
-                            <div class="mt-3">{!! $menuData['tentang_kami']['decription'] !!}</div>
                         </div>
                     </div>
                 </div>
@@ -73,10 +94,10 @@
                     <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
                         <img src="{{ $menuData['tentang_kami']['picture'] }}" class="img-fluid" style="border-radius:11px">
                     </div>
-                    <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
-                        <p>{!! $menuData['menu_lazatto']['decription'] !!}</p>
+                    <div class="col-md-6 mb-4 mb-lg-0 col-lg-6 color-one" data-aos="fade-up" data-aos-delay="">
+                        <div>{!! $menuData['menu_lazatto']['decription'] !!}</div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-md text-white" style="border-radius: 11px;background-color:#EB2326">{{ $menuData['tentang_kami']['title_link'] }}</a>
+                            <a href="#" class="btn btn-md my-btn-red">{{ $menuData['tentang_kami']['title_link'] }}</a>
                         </div>
                     </div>
                 </div>
@@ -89,13 +110,13 @@
 
     <?php /* NEWS & UPDATE SECTION */ ?>
     @if($menuData['news']['show'] == 'true')
-        <div class="site-section" style="background-color: #591019">
+        <div class="site-section" style="background-color: #591019; color: white;">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                         <h2 class="text-white">{{ $menuData['news']['title'] }}</h2>
-                        <hr>
+                        <hr style="background: white;">
                     </div>
                     </div>
                 </div>
@@ -106,13 +127,17 @@
                             <a href="{{ route('news.read',['slug'=>$row->slug]) }}" class="mb-4 d-block">
                                 <img src="{{ $row->picture }}" alt="Image" class="img-fluid rounded">
                             </a>
-                            <h5><a href="{{ route('news.read',['slug'=>$row->slug]) }}">{{ $row->name }}</a></h5>
-                            <p class="text-muted mb-3 text-uppercase small"><span class="mr-2">Diposting pada : {{ $row->created_at }}</span></p>
+                            <h5><a class="text-white" href="{{ route('news.read',['slug'=>$row->slug]) }}">{{ $row->name }}</a></h5>
+                            <p class="text-muted mb-3 text-uppercase small"><span class="mr-2 text-white">Diposting pada : {{ $row->created_at }}</span></p>
                             <p>{!! Str::words(strip_tags($row->introduction), 20, '...') !!}</p>
                             <p><a href="{{ route('news.read',['slug'=>$row->slug]) }}">Read More</a></p>
                         </div>
                     </div>
                     @endforeach
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-lg my-btn-yellow">{{ $menuData['news']['title_link'] }}</a>
                 </div>
             </div>
         </div>
@@ -152,7 +177,7 @@
                         <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                             <h2>{{ $menuData['kemitraan']['title'] }}</h2>
                             <hr>
-                            <div class="mt-3">
+                            <div class="mt-3 color-one">
                                 {!! $menuData['kemitraan']['decription'] !!}
                             </div>
                         </div>
@@ -178,7 +203,7 @@
                     @endforeach
                 </div>
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-lg text-white" style="border-radius: 11px;background-color:#EB2326">Selengkapnya</a>
+                    <a href="#" class="btn btn-lg my-btn-red">Selengkapnya</a>
                 </div>
             </div>
         </div>

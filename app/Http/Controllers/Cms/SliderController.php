@@ -117,6 +117,11 @@ class SliderController extends Controller
         }
         $store->order = $input['order'];
         $store->picture = $input['picture'];
+        $store->flag_name = $input['flag_name'];
+        $store->flag_button = $input['flag_button'];
+        $store->button_title = $input['button_title'];
+        $store->button_url = $input['button_url'];
+        $store->picture = $input['picture'];
         $store->last_update_by = Auth::guard('user')->user()->name;
         $store->name = $input['name'];
         $store->save();

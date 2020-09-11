@@ -77,7 +77,7 @@ class SeederContent extends Seeder
         $Slider2 = Picture::find(4)->url;
         $stores = [
             ['name'=>'Slider 1','order'=>1,'picture'=>$Slider1],
-            ['name'=>'Slider 2','order'=>2,'picture'=>$Slider1]
+            ['name'=>'Slider 2','order'=>2,'picture'=>$Slider2]
         ];
 
         foreach ($stores as $key => $store) {

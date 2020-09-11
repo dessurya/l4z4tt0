@@ -123,6 +123,7 @@ class SitePageController extends Controller
                     'show' => $input->news_show,
                     'title' => $input->news_title,
                     'decription' => $input->news_decription,
+                    'title_link' => $input->news_title_link,
                     'max_item' => $input->news_max_item
                 ],
                 'location' => [
@@ -301,7 +302,8 @@ class SitePageController extends Controller
                 'footer' => [
                     'logo' => $input->footer_logo,
                     'quote' => $input->footer_quote,
-                    'contact' => $input->footer_contact
+                    'contact' => $input->footer_contact,
+                    'max_item' => $input->footer_max_item
                 ]
             ]
         ];

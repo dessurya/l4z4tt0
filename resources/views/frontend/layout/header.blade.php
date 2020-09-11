@@ -2,13 +2,13 @@
 <div class="container">
     <div class="row align-items-center position-relative">
     <div class="site-logo">
-        <a href="#" class="text-black"><img src="{{ asset('asset/frontend/images/logo.png') }}" style="max-height: 70px;"></a>
+        <a href="#" class="text-black"><img src="{{ $navigasi_logo }}"></a>
     </div>
     <div class="col-12">
         <nav class="site-navigation text-right ml-auto " role="navigation">
         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
             @foreach($site_menu as $row)
-            <li><a href="{{ !empty($row->route) ? route($row->route) : '#' }}" class="nav-link">{{$row->name}}</a></li>
+            <li><a href="{{ route($row->route) }}" class="nav-link {{ Route::is($row->route) ? 'active' : '' }}">{{strtoupper($row->name)}}</a></li>
             @endforeach
             <?php /*
             <li><a href="http://localhost:7777/l4z4tt0/public/" class="nav-link">Beranda</a></li>

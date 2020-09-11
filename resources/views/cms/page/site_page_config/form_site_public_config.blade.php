@@ -74,6 +74,12 @@
                                         <textarea data-text="{{ $data->config['footer']['contact'] }}" name="footer_contact" class="summernote form-control input"></textarea>
                                     </div>
                                 </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Max Item Kemitraan</label>
+                                        <input value="{{ $data->config['footer']['max_item'] }}" name="footer_max_item" type="number" class="form-control input">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
