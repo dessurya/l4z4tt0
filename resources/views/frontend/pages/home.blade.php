@@ -15,6 +15,29 @@
     .slide-one-item .img-bg-section .btn{
         min-width: 160px;
     }
+
+    #kemitraan-section .link h3 a{
+        color: #000403;
+        background-color: #fec907;
+        padding: .3em 1.6em;
+        border-radius: 12px;
+        box-shadow: 0px 8px 8px rgba(215,215,215,.8);
+        transition: all .56s;
+    }
+    #kemitraan-section .link h3 a:hover{
+        box-shadow: 0px 0px 0px rgba(215,215,215,.8);
+        background-color:rgba(255,255,255,.4);
+        border: .6px solid #ffc107;
+        color: #ffc107;
+    }
+    #news-section img{
+        width: 100%;
+        height: 220px;
+        border-radius: 12px;
+    }
+    #location-section img{
+        width: 100%;
+    }
 </style>
 @endpush
 
@@ -110,7 +133,7 @@
 
     <?php /* NEWS & UPDATE SECTION */ ?>
     @if($menuData['news']['show'] == 'true')
-        <div class="site-section" style="background-color: #591019; color: white;">
+        <div id="news-section" class="site-section" style="background-color: #591019; color: white;">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
@@ -125,10 +148,10 @@
                     <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
                         <div>
                             <a href="{{ route('news.read',['slug'=>$row->slug]) }}" class="mb-4 d-block">
-                                <img src="{{ $row->picture }}" alt="Image" class="img-fluid rounded">
+                                <img src="{{ $row->picture }}" alt="Image">
                             </a>
                             <h5><a class="text-white" href="{{ route('news.read',['slug'=>$row->slug]) }}">{{ $row->name }}</a></h5>
-                            <p class="text-muted mb-3 text-uppercase small"><span class="mr-2 text-white">Diposting pada : {{ $row->created_at }}</span></p>
+                            <p class="text-muted mb-3 text-uppercase small"><span class="mr-2 text-white">Diposting pada : {{ date('d F Y H:i' ,strtotime($row->created_at)) }}</span></p>
                             <p>{!! Str::words(strip_tags($row->introduction), 20, '...') !!}</p>
                             <p><a href="{{ route('news.read',['slug'=>$row->slug]) }}">Read More</a></p>
                         </div>
@@ -148,7 +171,7 @@
 
     <?php /* LOKASI SECTION */ ?>
     @if($menuData['location']['show'] == 'true')
-        <div class="site-section bg-light" id="blog-section">
+        <div class="site-section bg-light" id="location-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
@@ -160,7 +183,7 @@
                 </div>
             </div>
             <div class="full-width-image">
-                <img src="{{ $menuData['location']['picture'] }}" class="img-fluid mx-auto d-block">
+                <img src="{{ $menuData['location']['picture'] }}" class="d-block">
             </div>
         </div>
     @endif
@@ -170,7 +193,7 @@
 
     <?php /* KEMITRAAN SECTION */ ?>
     @if($menuData['kemitraan']['show'] == 'true')
-        <div class="site-section" id="blog-section">
+        <div class="site-section" id="kemitraan-section">
             <div class="container">
                 <div class="row mb-5 justify-content-center text-center">
                     <div class="col-md-7">
@@ -185,20 +208,24 @@
                 </div>
                 <div class="row">
                     <?php /*
-                    <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
-                        <img src="{{ asset('asset/frontend/images/swakelola.png') }}" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
-                        <img src="{{ asset('asset/frontend/images/mudharabah.png') }}" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
-                        <img src="{{ asset('asset/frontend/images/murabahah.png') }}" class="img-fluid" alt="">
-                    </div>
+                        <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
+                            <img src="{{ asset('asset/frontend/images/swakelola.png') }}" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
+                            <img src="{{ asset('asset/frontend/images/mudharabah.png') }}" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
+                            <img src="{{ asset('asset/frontend/images/murabahah.png') }}" class="img-fluid" alt="">
+                        </div>
                     */ ?>
 
                     @foreach($Kemitraan as $row)
-                    <div class="col-md-12 col-lg-4 text-center mb-3" data-aos="fade-up" data-aos-delay="">
-                        <h3>{{ $row->name }}</h3>
+                    <div class="col-md-12 col-lg-4 text-center mb-5 link" data-aos="fade-up" data-aos-delay="">
+                        <h3>
+                            <a href="{{ Route::is('contact') ? '#'.Str::slug($row->name) : route('contact').'#'.Str::slug($row->name) }}">
+                            {{ $row->name }}
+                            </a>
+                        </h3>
                     </div>
                     @endforeach
                 </div>

@@ -1,5 +1,60 @@
 @extends('frontend.layout.web')
 
+@push('link')
+<style>
+    .block-testimony-1{
+        padding: 10px;
+    }
+    #menu-section img.menu-promo{
+        width: 100%;
+        margin: 0 auto;
+    }
+    @media (max-width: 568px){
+        #menu-section img.menu-promo{
+            width: 80%;
+        }
+    }
+</style>
+@endpush
+
+@push('script')
+<script>
+    $('.owl-carousel.menu-promo').owlCarousel({
+        center: false,
+        items: 1,
+        loop: true,
+        stagePadding: 0,
+        margin: 0,
+        smartSpeed: 1000,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 1675,
+        nav: false,
+        dots: false,
+        navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
+        responsive: {
+            600: {
+                margin: 0,
+                nav: false,
+                items: 1
+            },
+            1000: {
+                margin: 0,
+                stagePadding: 0,
+                nav: false,
+                items: 1
+            },
+            1200: {
+                margin: 0,
+                stagePadding: 0,
+                nav: false,
+                items: 3
+            }
+        }
+    });
+</script>
+@endpush
+
 @section('content')
     @foreach($site_menu as $menu)
     <?php $menuData = $menu->config; ?>
@@ -11,10 +66,10 @@
     @endif
 
 
-    <div class="site-section bg-light block-13" id="team-section">
-        <div class="container">
+    <div class="site-section bg-light block-13" id="menu-section">
 
-            @if($menuData['promo']['show'] == 'true')
+        @if($menuData['promo']['show'] == 'true')
+        <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
@@ -24,21 +79,24 @@
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel nonloop-block-13">
-                @foreach($items as $promo)
-                    @if($promo->menu == 'promo')
-                    <div>
-                        <div class="block-testimony-1 text-center">
-                            <a href="{{ $promo->picture }}">
-                                <img src="{{ $promo->picture }}" width="250px" height="350px" style="border-radius:11px">
-                            </a>
-                        </div>
+        </div>
+        
+        <div class="owl-carousel menu-promo">
+            @foreach($items as $promo)
+                @if($promo->menu == 'promo')
+                <div>
+                    <div class="block-testimony-1 text-center">
+                        <a href="{{ $promo->picture }}">
+                            <img class="menu-promo" src="{{ $promo->picture }}" style="border-radius:11px">
+                        </a>
                     </div>
-                    @endif
-                @endforeach
-            </div>
-            @endif
+                </div>
+                @endif
+            @endforeach
+        </div>
+        @endif
 
+        <div class="container">
             @if($menuData['reguler']['show'] == 'true')
             <div class="row mb-5 mt-5 justify-content-center">
                 <div class="col-md-7 text-center">
