@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Model\CmsPageConfig;
 use App\Model\Inbox;
 
@@ -81,5 +82,16 @@ class InboxController extends Controller
         }
         $ret['render_config']['content'] = base64_encode(view('cms.page.inbox.read', compact('inbox'))->render());
         return $ret;
+    }
+
+    public function check(Request $input)
+    {
+        $data = Inbox::select(['id','name','email','subject','created_at', 'message'])->where('flag_read', 'N')->orderBy('id','desc')->get();
+        $id = $data->pluck('id');
+        $data = $data->take(3)->map(function($val,$key){
+            $val->message = Str::words($val->message,18,'...');
+            return $val;
+        });
+        return [ 'data' => $data, 'id' => $id ];
     }
 }

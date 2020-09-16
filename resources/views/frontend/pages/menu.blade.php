@@ -1,5 +1,14 @@
 @extends('frontend.layout.web')
 
+<?php
+// @push('meta')
+// <meta name="author" content="Lazatto Chicken & Burger">
+// <meta name="title" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
+// <meta name="description" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
+// <meta name="keywords" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
+// @endpush
+?>
+
 @push('link')
 <style>
     .block-testimony-1{

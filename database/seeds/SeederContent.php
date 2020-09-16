@@ -142,10 +142,10 @@ class SeederContent extends Seeder
     private function Inbox()
     {
         $stores = [
-            ['name'=>'Visitor 1', 'email'=>'visitor1@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
-            ['name'=>'Visitor 2', 'email'=>'visitor2@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
-            ['name'=>'Visitor 3', 'email'=>'visitor3@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
-            ['name'=>'Visitor 4', 'email'=>'visitor4@mail.mail', 'subject'=>'halo', 'message'=>'halo' ],
+            ['name'=>'Visitor 1', 'email'=>'visitor1@mail.mail', 'subject'=>'subject 1', 'message'=>'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.' ],
+            ['name'=>'Visitor 2', 'email'=>'visitor2@mail.mail', 'subject'=>'subject 2', 'message'=>'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.' ],
+            ['name'=>'Visitor 3', 'email'=>'visitor3@mail.mail', 'subject'=>'subject 3', 'message'=>'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.' ],
+            ['name'=>'Visitor 4', 'email'=>'visitor4@mail.mail', 'subject'=>'subject 4', 'message'=>'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum vel quaerat iure laudantium nobis nesciunt repellat, a tempora deleniti cupiditate facere magni libero ab impedit harum facilis. Accusantium, consectetur.' ],
         ];
 
         foreach ($stores as $key => $store) {

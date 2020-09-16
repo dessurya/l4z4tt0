@@ -131,5 +131,6 @@ Route::middleware('user')->group(function() {
         Route::get('/', 'InboxController@index')->name('index');
         Route::post('/data', 'InboxController@data')->name('data');
         Route::post('/read', 'InboxController@read')->name('read');
+        Route::post('/check', 'InboxController@check')->name('check');
     });
 });

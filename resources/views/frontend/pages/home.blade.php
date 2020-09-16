@@ -41,6 +41,13 @@
 </style>
 @endpush
 
+@push('meta')
+<meta name="author" content="Lazatto Chicken & Burger">
+<meta name="title" content="Lazatto Chicken & Burger">
+<meta name="description" content="Lazatto Chicken & Burger">
+<meta name="keywords" content="Lazatto Chicken & Burger">
+@endpush
+
 @section('content')
     <?php /* BANNER SLIDER */ ?>
     @if($menuData['slider']['show'] == 'true')
@@ -93,7 +100,7 @@
                 @endforeach
             </div>
             <div class="text-center mt-5">
-                <a href="#" class="btn btn-lg my-btn-red">{{ $menuData['menu_lazatto']['title_link'] }}</a>
+                <a href="{{ route('menu') }}" class="btn btn-lg my-btn-red">{{ $menuData['menu_lazatto']['title_link'] }}</a>
             </div>
         </div>
     @endif
@@ -118,9 +125,9 @@
                         <img src="{{ $menuData['tentang_kami']['picture'] }}" class="img-fluid" style="border-radius:11px">
                     </div>
                     <div class="col-md-6 mb-4 mb-lg-0 col-lg-6 color-one" data-aos="fade-up" data-aos-delay="">
-                        <div>{!! $menuData['menu_lazatto']['decription'] !!}</div>
+                        <div>{!! $menuData['tentang_kami']['decription'] !!}</div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-md my-btn-red">{{ $menuData['tentang_kami']['title_link'] }}</a>
+                            <a href="{{ route('tentang_kami') }}" class="btn btn-md my-btn-red">{{ $menuData['tentang_kami']['title_link'] }}</a>
                         </div>
                     </div>
                 </div>
@@ -160,7 +167,7 @@
                 </div>
 
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-lg my-btn-yellow">{{ $menuData['news']['title_link'] }}</a>
+                    <a href="{{ route('news') }}" class="btn btn-lg my-btn-yellow">{{ $menuData['news']['title_link'] }}</a>
                 </div>
             </div>
         </div>
@@ -230,7 +237,7 @@
                     @endforeach
                 </div>
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-lg my-btn-red">Selengkapnya</a>
+                    <a href="{{ route('contact') }}" class="btn btn-lg my-btn-red">{{ $menuData['kemitraan']['title_link'] }}</a>
                 </div>
             </div>
         </div>

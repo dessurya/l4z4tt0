@@ -1,5 +1,14 @@
 @extends('frontend.layout.web')
 
+<?php
+// @push('meta')
+// <meta name="author" content="Lazatto Chicken & Burger">
+// <meta name="title" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// <meta name="description" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// <meta name="keywords" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// @endpush
+?>
+
 @section('content')
     <div class="owl-carousel slide-one-item">
         <div class="site-section-cover img-bg-section" style="background-image: url('images/news-page/banner.jpg'); " ></div>

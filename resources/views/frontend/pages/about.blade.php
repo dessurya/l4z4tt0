@@ -1,5 +1,14 @@
 @extends('frontend.layout.web')
 
+<?php
+// @push('meta')
+// <meta name="author" content="Lazatto Chicken & Burger">
+// <meta name="title" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// <meta name="description" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// <meta name="keywords" content="Lazatto Chicken & Burger - {{ $menudata['profile']['title'] }}">
+// @endpush
+?>
+
 @section('content')
     @foreach($site_menu as $menu)
     <?php $menuData = $menu->config; ?>
@@ -18,7 +27,6 @@
                 <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
                     <h2>{{ $menuData['profile']['title'] }}</h2>
                     <hr>
-                    <!-- <p class="mt-3">{!! $menuData['profile']['decription'] !!}</p> -->
                 </div>
             </div>
         </div>
