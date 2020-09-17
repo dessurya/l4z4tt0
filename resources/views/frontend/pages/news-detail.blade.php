@@ -4,6 +4,7 @@
 - {{ $item->name }}
 @endsection
 
+
 @push('meta')
 <meta name="author" content="Lazatto Chicken & Burger">
 <meta name="title" content="Lazatto Chicken & Burger - {{ $item->name }}">
