@@ -12,7 +12,7 @@ class NewsController extends Controller
     public function index()
     {
         $items = News::paginate(6);
-        $site_menu = Site::where('id', 4)->get();
+        $site_menu = Site::where('identity', 'news')->first();
 
         return view('frontend.pages.news',[
             'items' => $items,
@@ -22,9 +22,9 @@ class NewsController extends Controller
 
     public function detail($slug)
     {
-        $items = News::where('slug', $slug)->get();
+        $item = News::where('slug', $slug)->first();
         return view('frontend.pages.news-detail', [
-            'items' => $items
+            'item' => $item
         ]);
     }
 }

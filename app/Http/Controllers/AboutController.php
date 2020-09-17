@@ -10,9 +10,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $site_menu = Site::where('id', 2)->get();        
-        return view('frontend/pages/about',[
-            'site_menu' => $site_menu
-        ]);
+        $site_menu = Site::where('identity', 'tentang_kami')->first();
+        return view('frontend.pages.about',compact('site_menu'));
     }
 }

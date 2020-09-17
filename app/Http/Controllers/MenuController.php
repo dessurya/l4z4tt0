@@ -11,11 +11,11 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $items = Menu::all();
-        $site_menu = Site::where('id', 3)->get();
+        $Menus = Menu::all();
+        $site_menu = Site::where('identity', 'menu')->first();
     
         return view('frontend.pages.menu', [
-            'items' => $items,
+            'Menus' => $Menus,
             'site_menu' => $site_menu
         ]);
     }

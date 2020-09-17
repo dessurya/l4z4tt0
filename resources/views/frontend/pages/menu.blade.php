@@ -1,13 +1,15 @@
 @extends('frontend.layout.web')
 
-<?php
-// @push('meta')
-// <meta name="author" content="Lazatto Chicken & Burger">
-// <meta name="title" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
-// <meta name="description" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
-// <meta name="keywords" content="Lazatto Chicken & Burger - {{ $menudata['promo']['title'] }}">
-// @endpush
-?>
+@section('title')
+- {{ $site_menu->name }}
+@endsection
+
+@push('meta')
+<meta name="author" content="Lazatto Chicken & Burger">
+<meta name="title" content="Lazatto Chicken & Burger - {{ $site_menu->name }}">
+<meta name="description" content="Lazatto Chicken & Burger - {{ $site_menu->name }}">
+<meta name="keywords" content="Lazatto Chicken & Burger - {{ $site_menu->name }}">
+@endpush
 
 @push('link')
 <style>
@@ -65,68 +67,60 @@
 @endpush
 
 @section('content')
-    @foreach($site_menu as $menu)
-    <?php $menuData = $menu->config; ?>
-
-    @if($menuData['banner']['show'] == 'true')
+    @if($site_menu->config['banner']['show'] == 'true')
     <div class="owl-carousel slide-one-item">
-        <div class="site-section-cover img-bg-section" style="background-image: url('{{ $menuData['banner']['picture'] }}'); " ></div>
+        <div class="site-section-cover img-bg-section" style="background-image: url('{{ $site_menu->config['banner']['picture'] }}'); " ></div>
     </div>
     @endif
 
 
     <div class="site-section bg-light block-13" id="menu-section">
 
-        @if($menuData['promo']['show'] == 'true')
+        @if($site_menu->config['promo']['show'] == 'true')
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2>{{ $menuData['promo']['title'] }}</h2>
+                        <h2>{{ $site_menu->config['promo']['title'] }}</h2>
                         <hr>
-                        <p class="mt-3">{!! $menuData['promo']['decription'] !!}</p>
+                        <p class="mt-3">{!! $site_menu->config['promo']['decription'] !!}</p>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="owl-carousel menu-promo">
-            @foreach($items as $promo)
-                @if($promo->menu == 'promo')
+            @foreach($Menus->where('menu','promo') as $menu)
                 <div>
                     <div class="block-testimony-1 text-center">
-                        <a href="{{ $promo->picture }}">
-                            <img class="menu-promo" src="{{ $promo->picture }}" style="border-radius:11px">
+                        <a href="{{ $menu->picture }}">
+                            <img class="menu-promo" src="{{ $menu->picture }}" style="border-radius:11px">
                         </a>
                     </div>
                 </div>
-                @endif
             @endforeach
         </div>
         @endif
 
         <div class="container">
-            @if($menuData['reguler']['show'] == 'true')
+            @if($site_menu->config['reguler']['show'] == 'true')
             <div class="row mb-5 mt-5 justify-content-center">
                 <div class="col-md-7 text-center">
                     <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                        <h2>{{ $menuData['reguler']['title'] }}</h2>
+                        <h2>{{ $site_menu->config['reguler']['title'] }}</h2>
                         <hr>
-                        <p class="mt-3">{!! $menuData['reguler']['decription'] !!}</p>
+                        <p class="mt-3">{!! $site_menu->config['reguler']['decription'] !!}</p>
                     </div>
                 </div>
             </div>
             <div class="row mb-5">
-                @foreach($items as $reguler)
-                    @if($reguler->menu == 'reguler')
+                @foreach($Menus->where('menu','reguler') as $menu)
                     <div class="col-md-3 mb-4 mb-5 col-lg-3" data-aos="fade-up" data-aos-delay="">
-                        <img src="{{ $reguler->picture }}" class="img-fluid" style="border-radius:11px">
+                        <img src="{{ $menu->picture }}" class="img-fluid" style="border-radius:11px">
                     </div>
-                    @endif
                 @endforeach
             </div>
             @endif
         </div>
     </div>
-    @endforeach
 @endsection
