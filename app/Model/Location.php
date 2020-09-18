@@ -14,4 +14,8 @@ class Location extends Model
     {
         return date('Y-m-d H:i:s', strtotime($date));
     }
+    public function collapseLocation()
+    {
+        return $this->hasMany(Location::class, 'city', 'city')->orderBy('name', 'asc');
+    }
 }
