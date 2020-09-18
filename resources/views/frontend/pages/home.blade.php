@@ -159,7 +159,7 @@
                             </a>
                             <h5><a class="text-white" href="{{ route('news.read',['slug'=>$row->slug]) }}">{{ $row->name }}</a></h5>
                             <p class="text-muted mb-3 text-uppercase small"><span class="mr-2 text-white">Diposting pada : {{ date('d F Y H:i' ,strtotime($row->created_at)) }}</span></p>
-                            <p>{!! Str::words(strip_tags($row->introduction), 20, '...') !!}</p>
+                            <p class="text-justify">{!! Str::words(strip_tags($row->introduction), 20, '...') !!}</p>
                             <p><a href="{{ route('news.read',['slug'=>$row->slug]) }}">Read More</a></p>
                         </div>
                     </div>

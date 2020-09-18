@@ -56,7 +56,7 @@
                         <h5>{{ $item->name }}</h5>
                       </a>
                       <p class="mb-3 text-uppercase small"><span class="mr-2">Diposting pada : <?php echo date('d F Y', strtotime($item->created_at)); ?></span></p> 
-                      <p>{!! Str::words(strip_tags($item->introduction), 20, '...') !!}</p>
+                      <p class="text-justify">{!! Str::words(strip_tags($item->introduction), 20, '...') !!}</p>
                       <p><a href="{{ route('news.read',['slug'=>$item->slug]) }}">Read More</a></p>
                   </div>
                 </div>

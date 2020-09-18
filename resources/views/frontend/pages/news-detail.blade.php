@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-md-12 col-lg-12 text-center mb-3" data-aos="fade-up" data-aos-delay="">
                 <small>Diposting pada {{ date('d F Y H:i' ,strtotime($item->created_at)) }}</small>
-                <p class="mt-3">{!! $item->introduction !!}</p>
+                <div class="mt-3 text-justify">{!! $item->introduction !!}</div>
                 <img src="{{ $item->picture }}" alt="Image" class="img-fluid rounded">
-                <p class="mt-3">{!! $item->content !!}</p>
+                <div class="mt-3 text-justify">{!! $item->content !!}</div>
             </div>
         </div>
         <div class="text-center">
