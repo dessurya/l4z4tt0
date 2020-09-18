@@ -11,8 +11,10 @@ class LocationController extends Controller
 {
     public function index()
     {
-        $items = Location::select('city')->distinct()->with('collapseLocation')->get();
-        $site_menu = Site::where('id', 5)->get();
+        $items = Location::select('city')->distinct()->with(['collapseLocation' => function($model){
+            $model->where('flag_show','Y');
+        }])->get();
+        $site_menu = Site::where('identity', 'location')->first();
         return view('frontend.pages.location',[
             'items' => $items,
             'site_menu' => $site_menu

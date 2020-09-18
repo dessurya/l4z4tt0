@@ -6,10 +6,10 @@
 
 
 @push('meta')
-<meta name="author" content="Lazatto Chicken & Burger">
-<meta name="title" content="Lazatto Chicken & Burger - {{ $item->name }}">
-<meta name="description" content="Lazatto Chicken & Burger - {{ $item->name }}">
-<meta name="keywords" content="Lazatto Chicken & Burger - {{ $item->name }}">
+<meta name="author" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }}">
+<meta name="title" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $item->name }}">
+<meta name="description" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $item->name }}">
+<meta name="keywords" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $item->name }}">
 @endpush
 
 @section('content')

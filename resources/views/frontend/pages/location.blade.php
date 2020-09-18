@@ -1,5 +1,16 @@
 @extends('frontend.layout.web')
 
+@section('title')
+- {{ $site_menu->name }}
+@endsection
+
+@push('meta')
+<meta name="author" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }}">
+<meta name="title" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $site_menu->name }}">
+<meta name="description" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $site_menu->name }}">
+<meta name="keywords" content="{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} - {{ $site_menu->name }}">
+@endpush
+
 @push('link')
 <style>
     #location-section img{
@@ -18,9 +29,16 @@
         font-weight: bold;
         border-radius: 11px;
     }
+    #location-section h6{
+        color: #000000;
+    }
+    button:focus{
+        outline: none;
+    }
 
     .content {
-        padding: 0 18px;
+        margin-top:-15px;
+        padding: 15px 18px;
         display: none;
         overflow: hidden;
         background-color: #F8F9FA;
@@ -30,22 +48,20 @@
 @endpush
 
 @section('content')
-    @foreach($site_menu as $menu)
-        <?php $menuData = $menu->config; ?>
-        @if($menuData['maps']['show'] == 'true')
+        @if($site_menu->config['maps']['show'] == 'true')
             <div class="site-section bg-light" id="location-section">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 text-center mb-5">
                             <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
-                                <h2>{{ $menuData['maps']['title'] }}</h2>
+                                <h2>{{ $site_menu->config['maps']['title'] }}</h2>
                                 <hr>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="full-width-image">
-                    <img src="{{ $menuData['maps']['picture'] }}" class="d-block">
+                    <img src="{{ $site_menu->config['maps']['picture'] }}" class="d-block">
                 </div>
             </div>
         @endif
@@ -55,18 +71,24 @@
                     @foreach($items as $item)
                         <div class="city-collapse mb-4" style="width: 100%">
                             <button type="button" class="collapsible">
-                                {{ $item->city }}
-                                <i class="fas fa-map-marker-alt fa-1x float-right" style="color:#ED4A3B"></i>
+                                <table style="width:100%">
+                                    <tr>
+                                        <td class="align-middle">
+                                            {{ $item->city }}
+                                        </td>
+                                        <td class="align-middle text-right">
+                                            <i class="fas fa-map-marker-alt fa-1x float-right" style="color:#ED4A3B"></i>
+                                        </td>
+                                    </tr>
+                                </table>
                             </button>
                             <div class="content">
                                 <div class="row">
                                     @foreach($item->collapseLocation as $outlet)
-                                        @if($outlet->flag_show == 'Y')
                                             <div class="col-lg-3 mt-3">
                                                 <h6 class="font-weight-bold">{{ $outlet->name }}</h6>
-                                                <p>{!! $outlet->address !!}</p>
+                                                <div>{!! $outlet->address !!}</div>
                                             </div>
-                                        @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -75,7 +97,6 @@
                 </div>
             </div>
         </div>
-    @endforeach
 @endsection
 
 @push('script')

@@ -28,7 +28,7 @@ class HomeController extends Controller
     public static function getHeader()
     {
         $site_menu = Site::where('flag_show','Y')->whereNotIn('identity', ['site_public_config'])->orderBy('id','asc')->get();
-        $navigasi_logo = static::getSiteConfig();
+        $navigasi_logo = static::getSiteConfig()->config;
         $navigasi_logo = $navigasi_logo['navigasi']['logo'];
         echo view('frontend.layout.header', compact('site_menu','navigasi_logo'))->render();
     }
@@ -36,20 +36,20 @@ class HomeController extends Controller
     public static function getFooter()
     {
         $site_menu = Site::where('flag_show','Y')->whereNotIn('identity', ['site_public_config'])->orderBy('id','asc')->get();
-        $footer_componen = static::getSiteConfig();
+        $footer_componen = static::getSiteConfig()->config;
         $footer_componen = $footer_componen['footer'];
         $Kemitraan = Kemitraan::where('flag_show', 'Y')->orderBy('id','desc')->limit($footer_componen['max_item'])->get();
         echo view('frontend.layout.footer', compact('site_menu','footer_componen','Kemitraan'))->render();
     }
 
-    private static function getSiteConfig()
+    public static function getSiteConfig()
     {
-        return Site::where('identity', 'site_public_config')->first()->config;
+        return Site::where('identity', 'site_public_config')->first();
     }
 
     public static function getSiteIcon()
     {
-        $siteConf = static::getSiteConfig();
+        $siteConf = static::getSiteConfig()->config;
         return $siteConf['website']['icon'];
     }
 }

@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Lazatto @yield('title')</title>
+    <title>{{ App\Http\Controllers\HomeController::getSiteConfig()->name }} @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
