@@ -98,6 +98,16 @@
         color: #ffc107;
     }
 
+    .my-btn-green{
+        color: white;
+        border-radius: 11px;
+        background-color:#3CA630;
+        border: .6px solid rgba(0,0,0,0);
+        transition: all .56s;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+    }
+
     .my-btn-yellow{
         border: .6px solid rgba(0,0,0,0);
         border-radius: 11px;

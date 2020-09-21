@@ -10,7 +10,7 @@ Route::get('/news/read/{slug}', 'NewsController@detail')->name('news.read');
 
 Route::get('/news-&-update', 'NewsController@index')->name('news');
 Route::get('/lokasi-outlet', 'LocationController@index')->name('location');
-Route::get('/contact-us', 'MenuController@index')->name('contact');
+Route::get('/contact-us', 'ContactController@index')->name('contact');
 
 // Route::get('/news-&-update', 'NewsController');
 // Route::resource('/lokasi-outlet', 'LokasiController');
