@@ -39,9 +39,15 @@
     .content {
         margin-top:-15px;
         padding: 15px 18px;
-        display: none;
         overflow: hidden;
+        height: 0;
+        transition:all .52s;
+        background-color: rgba(255,255,255,0);
+    }
+
+    .colorBackGround{
         background-color: #F8F9FA;
+        height: 100%;
     }
 </style>
 <script src="https://kit.fontawesome.com/e9ed70db8d.js" crossorigin="anonymous"></script>
@@ -101,19 +107,23 @@
 
 @push('script')
 <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
+    $(document).on('click', '.collapsible', function () {
+       $(this).next().toggleClass('colorBackGround');
     });
-    }
+    // var coll = document.getElementsByClassName("collapsible");
+    // var i;
+
+    // for (i = 0; i < coll.length; i++) {
+    // coll[i].addEventListener("click", function() {
+    //     this.classList.toggle("active");
+    //     var content = this.nextElementSibling;
+    //     content.toggle();
+    //     // if (content.style.display === "block") {
+    //     // content.style.display = "none";
+    //     // } else {
+    //     // content.style.display = "block";
+    //     // }
+    // });
+    // }
 </script>
 @endpush

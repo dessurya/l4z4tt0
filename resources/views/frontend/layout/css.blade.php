@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ url('asset/frontend/css/style.css') }}">
 <style>
     body{
+        transition:all .52s;
         font-family: 'Open Sans', sans-serif;
     }
     h1, h2, h3, h4, h5, h6{
@@ -103,10 +104,15 @@
         color: white;
         border-radius: 11px;
         background-color:#3CA630;
-        border: .6px solid rgba(0,0,0,0);
+        border: 1.6px solid rgba(0,0,0,0);
         transition: all .56s;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
+    }
+    .my-btn-green:hover{
+        background-color:rgba(255,255,255,.4);
+        border: 1.6px solid #3CA630;
+        color: #3CA630;
     }
 
     .my-btn-yellow{
