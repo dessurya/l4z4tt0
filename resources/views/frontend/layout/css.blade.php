@@ -25,7 +25,7 @@
     }
 
     .sticky-wrapper header .site-logo img{
-    transition: all .56s;
+        transition: all .56s;
         max-height: 90px;
     }
 
@@ -38,7 +38,7 @@
         box-shadow: 0px 0px 0px rgba(0,0,0, 0);
     }
     .sticky-wrapper.is-sticky .site-navbar{
-        box-shadow: 0px 3px 6px rgba(222,222,222, .8);
+        box-shadow: 0px 3px 6px rgba(5,5,5, .8);
     }
     .sticky-wrapper.is-sticky .site-navbar ul li a,
     .site-navbar .site-navigation .site-menu > li > a{
@@ -73,6 +73,7 @@
     .site-footer a{
         font-weight: bolder;
     }
+    .site-footer a:hover,
     .site-footer a.active{
         color: #d4332b;
     }

@@ -11,8 +11,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $items = Kemitraan::all();
-        $site_menu = Site::where('id', 6)->get();
+        $items = Kemitraan::where('flag_show','Y')->get();
+        $site_menu = Site::where('identity', 'contact')->first();
 
         return view('frontend.pages.contact',[
             'items' => $items,
