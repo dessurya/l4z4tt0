@@ -203,6 +203,7 @@ class SeederSitePageConfig extends Seeder
             'identity' => 'site_public_config',
             'name' => 'Site Public Config',
             'config' => [
+                'wa_no' => '6289999999999',
                 'website' => [ 'icon' => $logo],
                 'navigasi' => [ 'logo' => $logo],
                 'footer' => [

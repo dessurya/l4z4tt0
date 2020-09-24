@@ -14,6 +14,13 @@
 				</div>
 
                 <div class="col-sm-12">
+					<div class="form-group">
+						<label>Whatsapp number</label>
+						<input value="{{ $data->config['wa_no'] }}" required name="wa_no" type="text" class="form-control input">
+					</div>
+				</div>
+
+                <div class="col-sm-12">
                     <div class="card card-secondary">
                         <div class="card-header">
                             <h6 class="card-title">Section Website</h6>

@@ -297,6 +297,7 @@ class SitePageController extends Controller
         $store = [
             'name' => $input->name,
             'config' => [
+                'wa_no' => $input->wa_no,
                 'website' => [ 'icon' => $input->website_icon],
                 'navigasi' => [ 'logo' => $input->navigasi_logo],
                 'footer' => [
