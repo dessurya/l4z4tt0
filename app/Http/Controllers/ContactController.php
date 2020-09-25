@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Model\Kemitraan AS Kemitraan;
 use App\Model\SitePageConfig AS Site; 
+use App\Model\Inbox;
 
 class ContactController extends Controller
 {
@@ -18,5 +19,16 @@ class ContactController extends Controller
             'items' => $items,
             'site_menu' => $site_menu
         ]);
+    }
+
+    public function inboxAdd(Request $input)
+    {
+        $store = new Inbox;
+        $store->name = $input->name;
+        $store->email = $input->email;
+        $store->subject = $input->subject;
+        $store->message = $input->message;
+        $store->save();
+        return redirect()->back()->with('info', 'Terimakasih atas tanggapan anda');
     }
 }

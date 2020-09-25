@@ -39,20 +39,23 @@
                 <p class="text-center">{!! $site_menu->config['form']['decription'] !!}</p>
             </div>
             <div class="col-md-6 mb-4 mb-lg-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
-                <form method="POST" action="#">
+                <form method="POST" action="{{ route('contact.inbox.add') }}">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control border border-dark" name="name" placeholder="Name" style="border-radius: 11px;">
+                        <input required type="text" class="form-control border border-dark" name="name" placeholder="Name" style="border-radius: 11px;">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control border border-dark" name="email" placeholder="Email" style="border-radius: 11px;">
+                        <input required type="email" class="form-control border border-dark" name="email" placeholder="Email" style="border-radius: 11px;">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control border border-dark" name="email" placeholder="Subject" style="border-radius: 11px;">
+                        <input required type="text" class="form-control border border-dark" name="subject" placeholder="Subject" style="border-radius: 11px;">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control border border-dark" rows="5" name="message" placeholder="Your Message" style="border-radius: 11px;"></textarea>
+                        <textarea required class="form-control border border-dark" rows="5" name="message" placeholder="Your Message" style="border-radius: 11px;"></textarea>
                     </div>
+                    @if(Session::has('info'))
+                    <p class="alert alert-info">{{ Session::get('info') }}</p>
+                    @endif
                     <button type="submit" class="btn btn-md my-btn-red">Submit</button>
                 </form>
             </div>
