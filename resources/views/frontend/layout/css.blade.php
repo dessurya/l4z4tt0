@@ -13,6 +13,7 @@
 <style>
     body{
         font-family: 'Open Sans', sans-serif;
+        color: #505050;
     }
     h1, h2, h3, h4, h5, h6{
         font-family: 'Open Sans', sans-serif;
@@ -88,7 +89,7 @@
         color: white;
         border-radius: 11px;
         background-color:#EB2326;
-        border: .6px solid rgba(0,0,0,0);
+        border: 3px solid rgba(0,0,0,0);
         transition: all .56s;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
@@ -103,14 +104,19 @@
         color: white;
         border-radius: 11px;
         background-color:#3CA630;
-        border: .6px solid rgba(0,0,0,0);
+        border: 3px solid rgba(0,0,0,0);
         transition: all .56s;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
     }
+    .my-btn-green:hover{
+        background-color:rgba(255,255,255,.4);
+        border: 3px solid #3CA630;
+        color: #3CA630;
+    }
 
     .my-btn-yellow{
-        border: .6px solid rgba(0,0,0,0);
+        border: 3px solid rgba(0,0,0,0);
         border-radius: 11px;
         background-color: #ffc107;
         color:#591019;
@@ -120,7 +126,7 @@
     }
     .my-btn-yellow:hover{
         background-color:rgba(255,255,255,.4);
-        border: .6px solid #ffc107;
+        border: 3px solid #ffc107;
         color: #ffc107;
     }
     @media (min-width: 768px){
