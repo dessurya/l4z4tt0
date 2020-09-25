@@ -20,10 +20,13 @@
   a:hover h5{
     color: #D7302C;
   }
-  .site-section img{
+  .site-section .img{
         width: 100%;
         height: 220px;
         border-radius: 12px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
     }
 </style>
 @endpush
@@ -51,7 +54,7 @@
               @if($item->flag_show == 'Y')
                 <div class="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="">
                   <div>
-                      <img src="{{ $item->picture }}" alt="Image" class="mb-3">
+                    <div class="img mb-3" style="background-image: url('{{ $item->picture }}')"></div>
                       <a href="{{ route('news.read', $item->slug) }}">
                         <h5>{{ $item->name }}</h5>
                       </a>

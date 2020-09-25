@@ -30,10 +30,13 @@
         border: .6px solid #ffc107;
         color: #ffc107;
     }
-    #news-section img{
+    #news-section .img{
         width: 100%;
         height: 220px;
         border-radius: 12px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
     }
     #location-section img{
         width: 100%;
@@ -155,7 +158,7 @@
                     <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
                         <div>
                             <a href="{{ route('news.read',['slug'=>$row->slug]) }}" class="mb-4 d-block">
-                                <img src="{{ $row->picture }}" alt="Image">
+                                <div class="img" style="background-image: url('{{ $row->picture }}')"></div>
                             </a>
                             <h5><a class="text-white" href="{{ route('news.read',['slug'=>$row->slug]) }}">{{ $row->name }}</a></h5>
                             <p class="text-muted mb-3 text-uppercase small"><span class="mr-2 text-white">Diposting pada : {{ date('d F Y H:i' ,strtotime($row->created_at)) }}</span></p>
