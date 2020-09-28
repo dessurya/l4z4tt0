@@ -19,6 +19,7 @@
     #kemitraan-section .link h3 a{
         color: #000403;
         background-color: #fec907;
+        border: 3px solid #fec907;
         padding: .3em 1.6em;
         border-radius: 12px;
         box-shadow: 0px 8px 8px rgba(215,215,215,.8);
@@ -27,7 +28,7 @@
     #kemitraan-section .link h3 a:hover{
         box-shadow: 0px 0px 0px rgba(215,215,215,.8);
         background-color:rgba(255,255,255,.4);
-        border: .6px solid #ffc107;
+        border: 3px solid #ffc107;
         color: #ffc107;
     }
     #news-section .img{
@@ -38,8 +39,16 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
+    #news-section .my-btn-yellow:hover{
+        background-color: #591019;
+    }
     #location-section img{
         width: 100%;
+    }
+
+    #menu-section .my-btn-red:hover{
+        color: #EB2326;
+        border: 3px solid #EB2326;
     }
 </style>
 @endpush
@@ -81,7 +90,7 @@
 
     <?php /* MENU SECTION */ ?>
     @if($menuData['menu_lazatto']['show'] == 'true')
-        <div class="site-section bg-warning block-13" id="team-section">
+        <div class="site-section bg-warning block-13" id="menu-section">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-md-7 text-center">
