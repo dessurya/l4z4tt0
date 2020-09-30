@@ -9,7 +9,7 @@ use App\Model\Inbox;
 use App\Mail\NotifNewInbox;
 use Illuminate\Support\Facades\Mail;
 
-class sendNotifNewInbox extends Command
+class SendNotifNewInbox extends Command
 {
     /**
      * The name and signature of the console command.
@@ -45,6 +45,6 @@ class sendNotifNewInbox extends Command
         $users = User::where('flag_send_notif','Y')->get();
         $inbox = Inbox::where(['flag_read'=>'N','flag_send'=>'Y'])->get();
         foreach ($users as $user) { Mail::to($user->email)->send(new NotifNewInbox($user,$inbox)); }
-        Inbox::whereIn('id',$inbox->pluck('id'))->each->update(['flag_send'=>'N']);
+        $inbox->each->flagSendNotif();
     }
 }

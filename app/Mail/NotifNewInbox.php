@@ -9,7 +9,6 @@ use Illuminate\Queue\SerializesModels;
 
 
 use App\Model\User;
-use App\Model\Inbox;
 
 class NotifNewInbox extends Mailable
 {
@@ -23,7 +22,7 @@ class NotifNewInbox extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user, Inbox $inbox)
+    public function __construct(User $user, $inbox)
     {
         $this->user = $user;
         $this->inbox = $inbox;
@@ -36,7 +35,7 @@ class NotifNewInbox extends Mailable
      */
     public function build()
     {
-        return $this->from(['name'=>'Robot Administrator'])->subject('Pemberitahuan Pesan Baru')->view('mails.new-inbox')->with([
+        return $this->subject('Pemberitahuan Pesan Baru')->view('mails.new-inbox')->with([
             'user' => $this->user,
             'inbox' => $this->inbox,
         ]);
