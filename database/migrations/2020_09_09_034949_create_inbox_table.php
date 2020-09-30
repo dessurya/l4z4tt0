@@ -19,7 +19,8 @@ class CreateInboxTable extends Migration
             $table->string('email');
             $table->string('subject')->nullable();
             $table->text('message');
-            $table->string('flag_read')->default('N');
+            $table->string('flag_read',1)->default('N');
+            $table->string('flag_send',1)->default('Y');
             $table->timestamps();
         });
     }
