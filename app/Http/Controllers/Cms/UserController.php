@@ -192,4 +192,15 @@ class UserController extends Controller
     {
         return view('cms.page.user.profile');
     }
+
+    public function flagNotifInbox(Request $input)
+    {
+        User::whereIn('id',explode('^',$input->id))->get()->each->activeInactiveFlagNotifInbox();
+        return [
+            'rebuildTable' => true,
+            'pnotify' => true,
+            'pnotify_type' => 'success',
+            'pnotify_text' => 'Success change Active/Inactive notif inbox'
+        ];
+    }
 }

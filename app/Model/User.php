@@ -23,10 +23,17 @@ class User extends Authenticatable
         return date('Y-m-d H:i:s', strtotime($date));
     }
 
-    public static function boot() {
+    public static function boot() 
+    {
 		parent::boot();
 		self::creating(function ($selfM) {
             if (empty($selfM->password)) { $selfM->password = Hash::make('l3tm3in'); }
 		});
-	}
+    }
+    
+    public function activeInactiveFlagNotifInbox()
+    {
+        $this->flag_send_notif = $this->flag_send_notif == 'N' ? 'Y' : 'N';
+        $this->save();
+    }
 }

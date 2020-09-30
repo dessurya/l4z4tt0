@@ -44,6 +44,7 @@ class SeederCmsPageConfig extends Seeder
                         'componen' => [
                             ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Email','data'=>'email','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Send Notif Inbox','data'=>'flag_send_notif','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true]
                         ],
                         'action' => [
@@ -51,6 +52,7 @@ class SeederCmsPageConfig extends Seeder
                             ['route'=>'cms.user.form.new','title'=>'Add User','select'=>false,'confirm'=>false,'multiple'=>false],
                             ['route'=>'cms.user.form.update','title'=>'Update User','select'=>true,'confirm'=>false,'multiple'=>false],
                             ['route'=>'cms.user.delete','title'=>'Delete User','select'=>true,'confirm'=>true,'multiple'=>true],
+                            ['route'=>'cms.user.flag.notif.inbox','title'=>'Active/Inactive Send New Notif Inbox','select'=>true,'confirm'=>true,'multiple'=>true],
                         ]
                     ],
                     'form' => [

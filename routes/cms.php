@@ -17,6 +17,7 @@ Route::middleware('user')->group(function() {
         Route::post('/data', 'UserController@data')->name('data');
         Route::post('/delete', 'UserController@delete')->name('delete');
         Route::post('/reset/password', 'UserController@resetPassword')->name('reset.password');
+        Route::post('/flag/notif/inbox', 'UserController@flagNotifInbox')->name('flag.notif.inbox');
         Route::name('form.')->prefix('form/')->group(function(){
             Route::post('/new', 'UserController@formNew')->name('new');
             Route::post('/update', 'UserController@formUpdate')->name('update');

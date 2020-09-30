@@ -5,13 +5,13 @@
                 <div class="card-title">
                     <div id="dTableAction" class="input-group">
                         <div class="input-group-append">
-                            <button class="btn btn-info" onclick="rebuildTable()";>
+                            <button class="btn btn-info" onclick="rebuildTable()"; title="refresh list">
                                 <i class="fas fa-sync-alt"></i>
                             </button>
-                            <button class="btn btn-info" onclick="toogleClass('hide', '#{{ $config['table_id'] }} input')";>
+                            <button class="btn btn-info" onclick="toogleClass('hide', '#{{ $config['table_id'] }} input')"; title="search">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="true">
+                            <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="true" title="tools">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu" role="menu" style="">
@@ -24,6 +24,9 @@
                                     data-multiple="{{ $list['multiple'] }}"
                                     href="{{ route($list['route']) }}">{{$list['title']}}</a>
                                 @endforeach
+                                <div class="dropdown-divider"></div>
+                                <a href="#" onclick="selectAllRowTable(true)"; class="dropdown-item">Selected All</a>
+                                <a href="#" onclick="selectAllRowTable(false)"; class="dropdown-item">Unselected All</a>
                             </div>
                         </div>
                     </div>
