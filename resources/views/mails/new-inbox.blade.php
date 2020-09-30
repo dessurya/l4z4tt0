@@ -3,7 +3,10 @@
 <p>Info Pesan : </p>
 <ol>
     @foreach($inbox as $info)
-    <li>Dari : {{ $info->email }}, {{ $info->subject }}</li>
+    <li>
+        <p>Dari : {{ $info->name }} ( <strong>{{ $info->email }}</strong> )</p>
+        <p>Subject : {{ $info->subject }}</p> 
+    </li>
     @endforeach
 </ol>
 <p>Demikian info dari system</p>

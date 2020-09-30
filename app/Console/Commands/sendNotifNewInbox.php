@@ -44,7 +44,9 @@ class SendNotifNewInbox extends Command
     {
         $users = User::where('flag_send_notif','Y')->get();
         $inbox = Inbox::where(['flag_read'=>'N','flag_send'=>'Y'])->get();
-        foreach ($users as $user) { Mail::to($user->email)->send(new NotifNewInbox($user,$inbox)); }
-        $inbox->each->flagSendNotif();
+        if (count($inbox) > 0) {
+            foreach ($users as $user) { Mail::to($user->email)->send(new NotifNewInbox($user,$inbox)); }
+            $inbox->each->flagSendNotif();
+        }
     }
 }
