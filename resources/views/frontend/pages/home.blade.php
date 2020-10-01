@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="full-width-image">
-                <a href="{{ route('contact') }}">
+                <a href="{{ route('location') }}">
                     <img src="{{ $menuData['location']['picture'] }}" class="d-block">
                 </a>
             </div>
