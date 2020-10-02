@@ -86,8 +86,6 @@
     @endif
     <?php /* END BANNER SLIDER */ ?>
 
-
-
     <?php /* MENU SECTION */ ?>
     @if($menuData['menu_lazatto']['show'] == 'true')
         <div class="site-section bg-warning block-13" id="menu-section">
