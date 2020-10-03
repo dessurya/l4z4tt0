@@ -86,8 +86,6 @@
     @endif
     <?php /* END BANNER SLIDER */ ?>
 
-
-
     <?php /* MENU SECTION */ ?>
     @if($menuData['menu_lazatto']['show'] == 'true')
         <div class="site-section bg-warning block-13" id="menu-section">
@@ -202,7 +200,7 @@
                 </div>
             </div>
             <div class="full-width-image">
-                <a href="{{ route('contact') }}">
+                <a href="{{ route('location') }}">
                     <img src="{{ $menuData['location']['picture'] }}" class="d-block">
                 </a>
             </div>

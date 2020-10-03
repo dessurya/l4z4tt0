@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row align-items-center position-relative">
     <div class="site-logo">
-        <a href="#" class="text-black"><img src="{{ $navigasi_logo }}"></a>
+        <a href="{{ route('beranda') }}" class="text-black"><img src="{{ $navigasi_logo }}"></a>
     </div>
     <div class="col-12">
         <nav class="site-navigation text-right ml-auto " role="navigation">

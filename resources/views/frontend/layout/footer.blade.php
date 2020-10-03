@@ -48,7 +48,7 @@
               <div class="border-top pt-5">
               <p class="copyright">
                 &copy;<script>document.write(new Date().getFullYear());</script> Lazatto Chicken & Burger<br>
-                Web Development By <strong>PT. Fortuna Platina Indonesia</strong>
+                Web Development By <a href="https://f-plat.id" target="_blank"><strong>PT. Fortuna Platina Indonesia</strong></a>
               </p>
               </div>
             </div>

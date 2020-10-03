@@ -6,6 +6,13 @@
 
 @push('link')
 @include('cms.componen.summernote_link')
+<style>
+    .notallowed{
+        cursor:not-allowed;
+        pointer-events:none;
+        background-color:#e9ecef;
+    }
+</style>
 @endpush
 
 @push('script')

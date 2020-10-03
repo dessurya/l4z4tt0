@@ -39,7 +39,7 @@
         box-shadow: 0px 0px 0px rgba(0,0,0, 0);
     }
     .sticky-wrapper.is-sticky .site-navbar{
-        box-shadow: 0px 3px 6px rgba(5,5,5, .8);
+        box-shadow: 0px 3px 6px rgba(5,5,5, .3);
     }
     .sticky-wrapper.is-sticky .site-navbar ul li a,
     .site-navbar .site-navigation .site-menu > li > a{
@@ -95,7 +95,7 @@
         font-weight: 700;
     }
     .my-btn-red:hover{
-        background-color:rgba(255,255,255,.4);
+        background-color:rgba(255,255,255,0);
         border: 3px solid #ffc107;
         color: #ffc107;
     }
@@ -110,7 +110,7 @@
         font-weight: 700;
     }
     .my-btn-green:hover{
-        background-color:rgba(255,255,255,.4);
+        background-color:rgba(255,255,255,0);
         border: 3px solid #3CA630;
         color: #3CA630;
     }
@@ -125,7 +125,7 @@
         font-weight: 700;
     }
     .my-btn-yellow:hover{
-        background-color:rgba(255,255,255,.4);
+        background-color:rgba(255,255,255,0);
         border: 3px solid #ffc107;
         color: #ffc107;
     }

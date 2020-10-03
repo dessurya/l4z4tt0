@@ -23,19 +23,19 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Title</label>
-                                        <input value="{{ $data->config['meta']['title'] }}" name="meta_title" type="text" class="form-control input" max="250">
+                                        <input value="{{ $data->config['meta']['title'] }}" disabled name="meta_title" type="text" class="form-control input" max="250">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Keyword</label>
-                                        <input value="{{ $data->config['meta']['keyword'] }}" name="meta_keyword" type="text" class="form-control input" max="250">
+                                        <input value="{{ $data->config['meta']['keyword'] }}" disabled name="meta_keyword" type="text" class="form-control input" max="250">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Content</label>
-                                        <textarea name="meta_content" rows="3" class="form-control input" max="250">{{ $data->config['meta']['content'] }}</textarea>
+                                        <textarea disabled name="meta_content" rows="3" class="form-control input" max="250">{{ $data->config['meta']['content'] }}</textarea>
                                     </div>
                                 </div>
                             </div>
