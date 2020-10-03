@@ -12,6 +12,11 @@
 @endpush
 
 @push('link')
+<style>
+  .BDC_ReloadIcon{
+    display:none !important;
+  }
+</style>
 <script src="https://kit.fontawesome.com/e9ed70db8d.js" crossorigin="anonymous"></script>
 @endpush
 
@@ -53,10 +58,23 @@
                     <div class="form-group">
                         <textarea required class="form-control border border-dark" rows="5" name="message" placeholder="Your Message" style="border-radius: 11px;"></textarea>
                     </div>
+                    <div class="row">
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        {!! captcha_image_html('ExampleCaptcha') !!}
+                      </div>
+                      <div class="col-lg-8 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <input required type="text" class="form-control border border-dark" name="captcha" placeholder="Captcha" style="border-radius: 11px;" maxlength="4">
+                        </div>
+                      </div>
+                    </div>
                     @if(Session::has('info'))
                     <p class="alert alert-info">{{ Session::get('info') }}</p>
                     @endif
-                    <button type="submit" class="btn btn-md my-btn-red">Submit</button>
+                    @error('CaptchaCode')
+                    <p class="alert alert-danger">{{ $message }}</p>
+                    @enderror
+                    <button type="submit" class="btn btn-md my-btn-red mt-2">Submit</button>
                 </form>
             </div>
         </div>
@@ -87,7 +105,7 @@
                 <div class="col-lg-8 col-md-12 col-sm-12">
                   <h5 class="card-title text-uppercase text-dark">{{ $item->name }}</h5>
                   <p class="card-text">{!! $item->content !!}</p>
-                  <a href="https://api.whatsapp.com/send?phone={{ App\Http\Controllers\HomeController::getSiteConfig()->config['wa_no'] }}&text=Hallo%20{{ App\Http\Controllers\HomeController::getSiteConfig()->name }}%20saya%20tertarik%20dengan%20program%20anda%20mohon%20berikan%20info%20lebih%20lanjut." target="_blank" class="btn my-btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+                  <a href="#" target="_blank" class="btn my-btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
                 </div>
               </div>
             </div>

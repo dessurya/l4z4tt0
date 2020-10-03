@@ -23,12 +23,19 @@ class ContactController extends Controller
 
     public function inboxAdd(Request $input)
     {
-        $store = new Inbox;
-        $store->name = $input->name;
-        $store->email = $input->email;
-        $store->subject = $input->subject;
-        $store->message = $input->message;
-        $store->save();
-        return redirect()->back()->with('info', 'Terimakasih atas tanggapan anda');
+        $code = $input->captcha;
+        $isHuman = captcha_validate($code);
+
+        if ($isHuman){
+            $store = new Inbox;
+            $store->name = $input->name;
+            $store->email = $input->email;
+            $store->subject = $input->subject;
+            $store->message = $input->message;
+            $store->save();
+            return redirect()->back()->with('info', 'Terimakasih atas tanggapan anda');
+        }else{
+            return redirect()->back()->withErrors(['CaptchaCode' => 'Invalid validation code!']);
+        }
     }
 }
