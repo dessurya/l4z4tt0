@@ -116,7 +116,7 @@
                 <div class="col-lg-8 col-md-12 col-sm-12">
                   <h5 class="card-title text-uppercase text-dark">{{ $item->name }}</h5>
                   <p class="card-text">{!! $item->content !!}</p>
-                  <a href="#" target="_blank" class="btn my-btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+                  <a href="https://api.whatsapp.com/send?phone={{ App\Http\Controllers\HomeController::getSiteConfig()->config['wa_no'] }}&text=Terima%20kasih%20telah%20menghubungi%20info%20kemitraan%20Lazatto%20Chicken%20&%20Burger." target="_blank" class="btn my-btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
                 </div>
               </div>
             </div>
