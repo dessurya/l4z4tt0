@@ -16,6 +16,15 @@
   .BDC_ReloadIcon{
     display:none !important;
   }
+  .BDC_CaptchaDiv{
+    position:absolute;
+    left: -10px;
+    top: 6px;
+  }
+  #captcha{
+    padding: 0 10px;
+    overflow: hidden;
+  }
 </style>
 <script src="https://kit.fontawesome.com/e9ed70db8d.js" crossorigin="anonymous"></script>
 @endpush
@@ -58,8 +67,9 @@
                     <div class="form-group">
                         <textarea required class="form-control border border-dark" rows="5" name="message" placeholder="Your Message" style="border-radius: 11px;"></textarea>
                     </div>
+                    
                     <div class="row">
-                      <div class="col-lg-4 col-md-12 col-sm-12">
+                      <div id="captcha" class="col-lg-4 col-md-12 col-sm-12">
                         {!! captcha_image_html('ExampleCaptcha') !!}
                       </div>
                       <div class="col-lg-8 col-md-12 col-sm-12">
@@ -68,6 +78,7 @@
                         </div>
                       </div>
                     </div>
+
                     @if(Session::has('info'))
                     <p class="alert alert-info">{{ Session::get('info') }}</p>
                     @endif
