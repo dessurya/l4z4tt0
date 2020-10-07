@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $items = Kemitraan::where('flag_show','Y')->get();
+        $items = Kemitraan::where('flag_show','Y')->orderBy('order','asc')->get();
         $site_menu = Site::where('identity', 'contact')->first();
 
         return view('frontend.pages.contact',[

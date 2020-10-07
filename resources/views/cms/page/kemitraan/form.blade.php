@@ -6,10 +6,16 @@
 		<input type="hidden" name="id" class="input">
 		<div class="card-body">
 			<div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-6">
 					<div class="form-group">
 						<label>Name</label>
 						<input disabled name="name" type="text" class="form-control input">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Order</label>
+						<input disabled name="order" type="number" class="form-control input">
 					</div>
 				</div>
                 <div class="col-sm-12">

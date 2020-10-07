@@ -16,6 +16,10 @@
             </div>
             <div id="componen" class="col-md-8">
               <div class="row">
+                @if(count($Kemitraan) == 0)
+                <div class="col-md-4">
+                </div>
+                @endif
                 <div class="col-md-4">
                   <h2 class="footer-heading mb-4">NAVIGATION</h2>
                   <ul class="list-unstyled">
@@ -28,6 +32,7 @@
                   <h2 class="footer-heading mb-4">CONTACT</h2>
                   {!! $footer_componen['contact'] !!}
                 </div>
+                @if(count($Kemitraan) > 0)
                 <div class="col-md-4">
                   <h2 class="footer-heading mb-4">KEMITRAAN</h2>
                   <ul class="list-unstyled">
@@ -40,6 +45,7 @@
                     @endforeach
                   </ul>
                 </div>
+                @endif
               </div>
             </div>
           </div>

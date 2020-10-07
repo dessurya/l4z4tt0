@@ -282,6 +282,7 @@ class SeederCmsPageConfig extends Seeder
                         'order' => ['key'=>'created_at','value'=>'desc'],
                         'componen' => [
                             ['name'=>'Name','data'=>'name','search'=>true,'searchtype'=>'text','order'=>true],
+                            ['name'=>'Order','data'=>'order','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Show','data'=>'flag_show','search'=>true,'searchtype'=>'text','order'=>true],
                             ['name'=>'Picture','data'=>'picture','search'=>false,'searchtype'=>'text','order'=>false],
                             ['name'=>'Created At','data'=>'created_at','search'=>true,'searchtype'=>'date','order'=>true],
@@ -302,7 +303,7 @@ class SeederCmsPageConfig extends Seeder
                             'update'=>'cms.kemitraan.store.update'
                         ],
                         'disabled' => [],
-                        'required' => ['name', 'picture']
+                        'required' => ['name', 'picture', 'order']
                     ]
                 ]
             ],

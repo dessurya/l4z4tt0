@@ -38,7 +38,7 @@ class HomeController extends Controller
         $site_menu = Site::where('flag_show','Y')->whereNotIn('identity', ['site_public_config'])->orderBy('id','asc')->get();
         $footer_componen = static::getSiteConfig()->config;
         $footer_componen = $footer_componen['footer'];
-        $Kemitraan = Kemitraan::where('flag_show', 'Y')->orderBy('id','desc')->limit($footer_componen['max_item'])->get();
+        $Kemitraan = Kemitraan::where('flag_show', 'Y')->orderBy('order','asc')->limit($footer_componen['max_item'])->get();
         echo view('frontend.layout.footer', compact('site_menu','footer_componen','Kemitraan'))->render();
     }
 

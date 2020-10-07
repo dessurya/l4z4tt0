@@ -89,9 +89,9 @@ class SeederContent extends Seeder
     {
         $pic = Picture::find(1)->url;
         $stores = [
-            ['name'=>'Kemitraan 1','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
-            ['name'=>'Kemitraan 2','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
-            ['name'=>'Kemitraan 3','picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.']
+            ['name'=>'Kemitraan 1','order'=>1, 'picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
+            ['name'=>'Kemitraan 2','order'=>2, 'picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.'],
+            ['name'=>'Kemitraan 3','order'=>3, 'picture'=>$pic,'content'=>'That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.That dominion stars lights dominion divide years for fourth have dont stars is that he earth it first without heaven in place seed it second morning saying.']
         ];
 
         foreach ($stores as $key => $store) {

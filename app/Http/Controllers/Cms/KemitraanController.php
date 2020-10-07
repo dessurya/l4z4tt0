@@ -46,6 +46,9 @@ class KemitraanController extends Controller
         if (isset($input->name) and !empty($input->name)){
             $data->where('name', 'like', '%'.$input->name.'%');
         }
+        if (isset($input->order) and !empty($input->order)){
+            $data->where('order', $input->order);
+        }
         if (isset($input->flag_show) and !empty($input->flag_show)){
             $data->where('flag_show', 'like', '%'.$input->flag_show.'%');
         }
@@ -90,7 +93,7 @@ class KemitraanController extends Controller
             return [
                 'pnotify' => true,
                 'pnotify_type' => 'error',
-                'pnotify_text' => 'Fail, slider not found!'
+                'pnotify_text' => 'Fail, kemitraan not found!'
             ];
         }
         return $this->store($store[0],$input->all());
@@ -99,6 +102,7 @@ class KemitraanController extends Controller
     private function store($store,$input)
     {
         $store->content = $input['content'];
+        $store->order = $input['order'];
         $store->picture = $input['picture'];
         $store->last_update_by = Auth::guard('user')->user()->name;
         $store->name = $input['name'];

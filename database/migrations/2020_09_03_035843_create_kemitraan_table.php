@@ -16,6 +16,7 @@ class CreateKemitraanTable extends Migration
         Schema::create('lzzt_kemitraan', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('order')->nullable();
             $table->string('flag_show')->default('Y');
             $table->text('content')->nullable();
             $table->text('picture')->nullable();
