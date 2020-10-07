@@ -63,9 +63,9 @@
 @section('content')
     <?php /* BANNER SLIDER */ ?>
     @if($menuData['slider']['show'] == 'true')
-        <div class="owl-carousel slide-one-item" id="banner">
+        <div class="owl-carousel slide-one-item">
             @foreach($items as $slider)
-                <div class="site-section-cover img-bg-section" style="background-image: url('{{ $slider->picture }}'); " >
+                <div class="site-section-cover img-bg-section" style="background-image: url('{{ $slider->picture }}');min-height:5px; " >
                     <div class="container pt-5">
                         <div class="pt-5" style="width:70%;">
                             @if($slider->flag_name == 'Y') 

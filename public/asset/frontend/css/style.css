@@ -1180,10 +1180,10 @@ h1, h2, h3, h4, h5,
   .slide-one-item .owl-nav {
     display: none; } }
 
-@media (max-width: 991.98px) { 
+/* @media (max-width: 991.98px) { 
   #banner {
     display: none; }
- }
+ } */
 
 .slide-one-item .owl-nav .owl-prev, .slide-one-item .owl-nav .owl-next {
   position: absolute;
