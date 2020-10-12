@@ -21,7 +21,7 @@ class HomeController extends Controller
             'items' => Slider::where('flag_show', 'Y')->orderBy('order', 'asc')->limit($menuData['slider']['max_item'])->get(),
             'menu_reguler' => Menu::where(['menu'=>'reguler','flag_show'=>'Y'])->orderBy('id','desc')->limit($menuData['menu_lazatto']['max_item'])->get(),
             'news' => News::where('flag_show', 'Y')->orderBy('id','desc')->limit($menuData['news']['max_item'])->get(),
-            'Kemitraan' => Kemitraan::where('flag_show', 'Y')->orderBy('id','desc')->limit($menuData['kemitraan']['max_item'])->get(),
+            'Kemitraan' => Kemitraan::where('flag_show', 'Y')->orderBy('order','asc')->limit($menuData['kemitraan']['max_item'])->get(),
         ]);
     }
 

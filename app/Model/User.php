@@ -27,7 +27,7 @@ class User extends Authenticatable
     {
 		parent::boot();
 		self::creating(function ($selfM) {
-            if (empty($selfM->password)) { $selfM->password = Hash::make('l3tm3in'); }
+            if (empty($selfM->password)) { $selfM->password = 'l3tm3in'; }
 		});
     }
     
