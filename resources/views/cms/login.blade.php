@@ -15,7 +15,7 @@
 	<body class="hold-transition login-page">
 		<div class="login-box">
 			<div class="login-logo">
-				<a href="#">Welcome To <b>Content Managemnt Sistem</b></a>
+				<a href="#">Welcome To <b>Content Management System</b></a>
 			</div>
 
 			<div class="card">
