@@ -2,7 +2,7 @@
 	<div class="card-header">
 		<h3 class="card-title">Message From {{ $inbox->name }}</h3>
         <div class="card-tools">
-            <a href="mailto:{{ $inbox->email }}?subject={{ urlencode($inbox->subject) }}&body={{ urlencode($inbox->message) }}">Send Mail</a>
+            <a href="mailto:{{ $inbox->email }}?subject={{ urlencode('Replace : '.$inbox->subject) }}">Send Mail</a>
         </div>
 	</div>
     <div class="card-body">
